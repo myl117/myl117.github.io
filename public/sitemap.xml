@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/</loc>
+    <loc>/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/</loc>
+    <loc>/blog/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/building-a-tiny-cron-scheduler-with-go/</loc>
+    <loc>/building-a-tiny-cron-scheduler-with-go/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/docker/</loc>
+    <loc>/blog/docker/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/engineering/</loc>
+    <loc>/blog/engineering/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/fiber/</loc>
+    <loc>/blog/fiber/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/go/</loc>
+    <loc>/blog/go/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/hosted/</loc>
+    <loc>/blog/hosted/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/optimisation/</loc>
+    <loc>/blog/optimisation/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/markdown/</loc>
+    <loc>/blog/markdown/</loc>
     <lastmod>2020-01-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/markdown-syntax-guide/</loc>
+    <loc>/markdown-syntax-guide/</loc>
     <lastmod>2020-01-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/syntax/</loc>
+    <loc>/blog/syntax/</loc>
     <lastmod>2020-01-03T00:00:00+00:00</lastmod>
   </url>
 </urlset>
