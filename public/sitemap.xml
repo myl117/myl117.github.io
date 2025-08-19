@@ -19,5 +19,8 @@
   </url><url>
     <loc>http://localhost:1313/test-blog/</loc>
     <lastmod>2020-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/test-blog-2/</loc>
+    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
   </url>
 </urlset>

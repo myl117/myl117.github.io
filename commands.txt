@@ -1,1 +1,2 @@
 git subtree push --prefix public origin gh-pages
+git submodule add --force https://github.com/janraasch/hugo-bearblog.git themes/hugo-bearblog
