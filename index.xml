@@ -23,5 +23,12 @@
       <guid>http://localhost:1313/test-blog/</guid>
       <description>&lt;h1 id=&#34;hello&#34;&gt;hello&lt;/h1&gt;&#xA;&lt;hr&gt;</description>
     </item>
+    <item>
+      <title>Test Blog 2</title>
+      <link>http://localhost:1313/test-blog-2/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/test-blog-2/</guid>
+      <description>&lt;h1 id=&#34;hello&#34;&gt;hello&lt;/h1&gt;&#xA;&lt;hr&gt;</description>
+    </item>
   </channel>
 </rss>
