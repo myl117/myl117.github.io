@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" href="//localhost:1313/images/favicon.png" />
+<link rel="shortcut icon" href="../images/favicon.png" />
 <title>Building a Tiny Cron Scheduler With Go | ( •–•) Mo Codes</title>
 <meta name="title" content="Building a Tiny Cron Scheduler With Go" />
 <meta name="description" content="If you&rsquo;re anything like me, you&rsquo;ve probably got a bunch of scheduled tasks running in the cloud whether it&rsquo;s automation, IoT projects, data processing or just random experiments. My go-to approach has been to dockerize mini servers and deploy them on platforms like GCP or AWS. But getting something up and running on Cloud Run or Lambda isn&rsquo;t as lightweight as it sounds. You still need to push images to a registry, wire up an API gateway and set up a scheduler like Cloud Scheduler on GCP." />
 <meta name="keywords" content="go,fiber,docker,engineering,optimisation,hosted," />
 
 
-<meta property="og:url" content="//localhost:1313/building-a-tiny-cron-scheduler-with-go/">
+<meta property="og:url" content="/building-a-tiny-cron-scheduler-with-go/">
   <meta property="og:site_name" content="( •–•) Mo Codes">
   <meta property="og:title" content="Building a Tiny Cron Scheduler With Go">
   <meta property="og:description" content="If you’re anything like me, you’ve probably got a bunch of scheduled tasks running in the cloud whether it’s automation, IoT projects, data processing or just random experiments. My go-to approach has been to dockerize mini servers and deploy them on platforms like GCP or AWS. But getting something up and running on Cloud Run or Lambda isn’t as lightweight as it sounds. You still need to push images to a registry, wire up an API gateway and set up a scheduler like Cloud Scheduler on GCP.">
@@ -27,13 +27,13 @@
     <meta property="article:tag" content="Engineering">
     <meta property="article:tag" content="Optimisation">
     <meta property="article:tag" content="Hosted">
-    <meta property="og:image" content="//localhost:1313/images/share.png">
+    <meta property="og:image" content="/images/share.png">
 
 
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="//localhost:1313/images/share.png">
+  <meta name="twitter:image" content="/images/share.png">
   <meta name="twitter:title" content="Building a Tiny Cron Scheduler With Go">
   <meta name="twitter:description" content="If you’re anything like me, you’ve probably got a bunch of scheduled tasks running in the cloud whether it’s automation, IoT projects, data processing or just random experiments. My go-to approach has been to dockerize mini servers and deploy them on platforms like GCP or AWS. But getting something up and running on Cloud Run or Lambda isn’t as lightweight as it sounds. You still need to push images to a registry, wire up an API gateway and set up a scheduler like Cloud Scheduler on GCP.">
 
@@ -45,7 +45,7 @@
   <meta itemprop="datePublished" content="2025-08-19T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-08-19T00:00:00+00:00">
   <meta itemprop="wordCount" content="706">
-  <meta itemprop="image" content="//localhost:1313/images/share.png">
+  <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Go,Fiber,Docker,Engineering,Optimisation,Hosted">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -215,13 +215,13 @@
 </head>
 
 <body>
-  <header><a href="/" class="title">
+  <header><a href="../" class="title">
   <h2>( •–•) Mo Codes</h2>
 </a>
 <nav>
-<a href="/">Home</a>
+<a href="../">Home</a>
 
-<a href="/blog/">Blog</a>
+<a href="../blog/">Blog</a>
 
 </nav>
 </header>
@@ -240,10 +240,10 @@
   <p>If you&rsquo;re anything like me, you&rsquo;ve probably got a bunch of scheduled tasks running in the cloud whether it&rsquo;s automation, IoT projects, data processing or just random experiments. My go-to approach has been to dockerize mini servers and deploy them on platforms like GCP or AWS. But getting something up and running on Cloud Run or Lambda isn&rsquo;t as lightweight as it sounds. You still need to push images to a registry, wire up an API gateway and set up a scheduler like Cloud Scheduler on GCP.</p>
 <p>That&rsquo;s why I prefer hosting my applications on fly.io (and no, this isn&rsquo;t a sponsored post though if anyone from the Fly team is reading, I wouldn&rsquo;t say no 😉). Deploying apps there is ridiculously easy: just two commands with the fly CLI and you&rsquo;ve got an app running at the edge, complete with built-in load balancing, managed Postgres, a Grafana dashboard to measure system perf and per-second billing which is perfect for workloads that don&rsquo;t need to run 24/7. But&hellip; I still wanted to push costs down even further.</p>
 <p>My idea was simple: let those applications autosleep and only wake up when needed, using a cron scheduler. Sure, I could&rsquo;ve hacked this together with something like Uptime Robot or a bash script, but I wanted a solution that was both lightweight and had a clean interface. Something where I could easily tweak cron schedules, choose between POST or GET, adjust frequencies and even define parameters like the request body.</p>
-<p><img src="/images/building-tiny-cron-scheduler-go/go-vs-node-perf.jpg" alt="image info">
+<p><img src="../images/building-tiny-cron-scheduler-go/go-vs-node-perf.jpg" alt="image info">
 <em>Credit: <a href="https://jaydevs.com/nodejs-vs-golang/">https://jaydevs.com/nodejs-vs-golang/</a></em></p>
 <p>My goal was to keep this super cheap while still being able to handle a large pool of requests. At first, I considered using Node.js, but even with Node Alpine in Docker, the overhead felt heavier than I wanted, especially compared to something lower-level like C or Rust. The problem was, I wasn&rsquo;t too keen on dealing with manual memory management or chasing down overflow bugs. That&rsquo;s where Go came in: lightweight, efficient, no manual garbage collection and far better performance on system resources than Node.</p>
-<p><img src="/images/building-tiny-cron-scheduler-go/application.jpg" alt="image info">
+<p><img src="../images/building-tiny-cron-scheduler-go/application.jpg" alt="image info">
 <em>UI built with Vue JS and BS5</em></p>
 <p>On the tech stack side, I went with Fiber since I already had experience with Express and found the syntax familiar. For the database layer, I used the PGX driver to connect to my self-hosted PostgreSQL server, and for scheduling I used the Cron v3 package to manage jobs. On the frontend, I built the UI using Vue 3 combined with Bootstrap 5, which gave me a clean interface.</p>
 <p>After bundling everything with Docker on a Go Alpine base image and deploying to Fly (which uses Firecracker VMs), I was shocked to see the root filesystem being 663 MB 🤯 - far from the lightweight goal I had in mind. To fix this, I rebuilt my Docker image using multi-stage builds.</p>
@@ -291,17 +291,17 @@
 
 <p>
   
-  <a href="//localhost:1313/blog/go/">#Go</a>
+  <a href="../blog/go/">#Go</a>
   
-  <a href="//localhost:1313/blog/fiber/">#Fiber</a>
+  <a href="../blog/fiber/">#Fiber</a>
   
-  <a href="//localhost:1313/blog/docker/">#Docker</a>
+  <a href="../blog/docker/">#Docker</a>
   
-  <a href="//localhost:1313/blog/engineering/">#Engineering</a>
+  <a href="../blog/engineering/">#Engineering</a>
   
-  <a href="//localhost:1313/blog/optimisation/">#Optimisation</a>
+  <a href="../blog/optimisation/">#Optimisation</a>
   
-  <a href="//localhost:1313/blog/hosted/">#Hosted</a>
+  <a href="../blog/hosted/">#Hosted</a>
   
 </p>
 
