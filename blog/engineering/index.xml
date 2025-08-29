@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Engineering on ( •–•) Mo Codes</title>
-    <link>//localhost:1313/blog/engineering/</link>
+    <link>/blog/engineering/</link>
     <description>Recent content in Engineering on ( •–•) Mo Codes</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
     <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/blog/engineering/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/blog/engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building a Fantasy Ledger With Java Spring Boot</title>
-      <link>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</link>
+      <link>/building-a-fantasy-ledger-with-java-spring-boot/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</guid>
-      <description>&lt;p&gt;I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of OOP, databases, CRUD operations, and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.&lt;/p&gt;&#xA;&lt;p&gt;Since I’m a huge fan of fantasy media and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!&lt;/p&gt;</description>
+      <guid>/building-a-fantasy-ledger-with-java-spring-boot/</guid>
+      <description>&lt;p&gt;I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of databases, CRUD operations and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.&lt;/p&gt;&#xA;&lt;p&gt;Since I’m a huge fan of fantasy media 🧝‍♂️ and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building a Tiny Cron Scheduler With Go</title>
-      <link>//localhost:1313/building-a-tiny-cron-scheduler-with-go/</link>
+      <link>/building-a-tiny-cron-scheduler-with-go/</link>
       <pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/building-a-tiny-cron-scheduler-with-go/</guid>
+      <guid>/building-a-tiny-cron-scheduler-with-go/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re anything like me, you&amp;rsquo;ve probably got a bunch of scheduled tasks running in the cloud whether it&amp;rsquo;s automation, IoT projects, data processing or just random experiments. My go-to approach has been to dockerize mini servers and deploy them on platforms like GCP or AWS. But getting something up and running on Cloud Run or Lambda isn&amp;rsquo;t as lightweight as it sounds. You still need to push images to a registry, wire up an API gateway and set up a scheduler like Cloud Scheduler on GCP.&lt;/p&gt;</description>
     </item>
   </channel>

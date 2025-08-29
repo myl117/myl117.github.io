@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Github on ( •–•) Mo Codes</title>
-    <link>//localhost:1313/blog/github/</link>
+    <link>/blog/github/</link>
     <description>Recent content in Github on ( •–•) Mo Codes</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
     <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/blog/github/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/blog/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building a Fantasy Ledger With Java Spring Boot</title>
-      <link>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</link>
+      <link>/building-a-fantasy-ledger-with-java-spring-boot/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</guid>
-      <description>&lt;p&gt;I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of OOP, databases, CRUD operations, and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.&lt;/p&gt;&#xA;&lt;p&gt;Since I’m a huge fan of fantasy media and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!&lt;/p&gt;</description>
+      <guid>/building-a-fantasy-ledger-with-java-spring-boot/</guid>
+      <description>&lt;p&gt;I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of databases, CRUD operations and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.&lt;/p&gt;&#xA;&lt;p&gt;Since I’m a huge fan of fantasy media 🧝‍♂️ and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
