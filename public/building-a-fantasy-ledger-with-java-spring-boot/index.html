@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="//localhost:1313/images/favicon.png" />
+<title>Building a Fantasy Ledger With Java Spring Boot | ( •–•) Mo Codes</title>
+<meta name="title" content="Building a Fantasy Ledger With Java Spring Boot" />
+<meta name="description" content="I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of databases, CRUD operations and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.
+Since I’m a huge fan of fantasy media 🧝‍♂️ and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!" />
+<meta name="keywords" content="java,springboot,crud,engineering,mvc,backend,frontend,tutorial,github,fantasy,ledger," />
+
+
+<meta property="og:url" content="//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/">
+  <meta property="og:site_name" content="( •–•) Mo Codes">
+  <meta property="og:title" content="Building a Fantasy Ledger With Java Spring Boot">
+  <meta property="og:description" content="I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of databases, CRUD operations and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.
+Since I’m a huge fan of fantasy media 🧝‍♂️ and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Springboot">
+    <meta property="article:tag" content="Crud">
+    <meta property="article:tag" content="Engineering">
+    <meta property="article:tag" content="Mvc">
+    <meta property="article:tag" content="Backend">
+    <meta property="og:image" content="//localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="//localhost:1313/images/share.png">
+  <meta name="twitter:title" content="Building a Fantasy Ledger With Java Spring Boot">
+  <meta name="twitter:description" content="I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of databases, CRUD operations and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.
+Since I’m a huge fan of fantasy media 🧝‍♂️ and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!">
+
+
+
+
+  <meta itemprop="name" content="Building a Fantasy Ledger With Java Spring Boot">
+  <meta itemprop="description" content="I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of databases, CRUD operations and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.
+Since I’m a huge fan of fantasy media 🧝‍♂️ and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!">
+  <meta itemprop="datePublished" content="2025-08-29T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-08-29T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1009">
+  <meta itemprop="image" content="//localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Java,Springboot,Crud,Engineering,Mvc,Backend,Frontend,Tutorial,Github,Fantasy,Ledger">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="../" class="title">
+  <h2>( •–•) Mo Codes</h2>
+</a>
+<nav>
+<a href="../">Home</a>
+
+<a href="../blog/">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Building a Fantasy Ledger With Java Spring Boot</h1>
+<p>
+  <i>
+    <time datetime='2025-08-29'>
+      29 Aug, 2025
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of databases, CRUD operations and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.</p>
+<p>Since I’m a huge fan of fantasy media 🧝‍♂️ and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!</p>
+<p><em>Note: This tutorial assumes you have a basic understanding of the Java programming language syntax as well as OOP.</em></p>
+<h2 id="getting-started">Getting Started</h2>
+<p>To follow along, you&rsquo;ll need to have a couple of things installed first:</p>
+<ul>
+<li>The Long-Term Support (LTS) version of the JDK (Java Development Kit). At the time of writing, this is JDK 21.</li>
+<li>An IDE of your choice. I&rsquo;ll be using VS Code, but JetBrains IDEs (like IntelliJ) or something similar will work just as well.</li>
+</ul>
+<p>If you decide to go with VS Code, make sure you install these extension packs to make your life easier:</p>
+<ul>
+<li>Language Support for Java™ by Red Hat</li>
+<li>Extension Pack for Java by Microsoft</li>
+<li>Spring Boot Extension Pack by VMware</li>
+</ul>
+<h2 id="creating-a-spring-boot-project">Creating a Spring Boot Project</h2>
+<p>Before we dive in, a quick note: the full source code for this project is available <a href="https://github.com/myl117/ledger-journal-app">here</a>. To create a new Spring Boot project, you can either go to start.spring.io or, even better, use Spring Initializr directly from your IDE. In VS Code, open the command palette (Ctrl+Shift+P) and select: <em>Spring Initializr: Generate a Maven/Gradle Project</em>.</p>
+<p>Both Maven and Gradle are build automation tools that handle dependencies and the build process for us. For this tutorial, I&rsquo;ll be sticking with Maven.</p>
+<p>Once your project is generated, the next step is to update the pom.xml file to include a few additional dependencies: JDBC and H2 for database persistence, and Thymeleaf so we can render HTML templates.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#062873;font-weight:bold">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  <span style="color:#062873;font-weight:bold">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#062873;font-weight:bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#062873;font-weight:bold">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    <span style="color:#062873;font-weight:bold">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#062873;font-weight:bold">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>  <span style="color:#062873;font-weight:bold">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>  <span style="color:#062873;font-weight:bold">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#062873;font-weight:bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#062873;font-weight:bold">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    <span style="color:#062873;font-weight:bold">&lt;artifactId&gt;</span>spring-boot-devtools<span style="color:#062873;font-weight:bold">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    <span style="color:#062873;font-weight:bold">&lt;scope&gt;</span>runtime<span style="color:#062873;font-weight:bold">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    <span style="color:#062873;font-weight:bold">&lt;optional&gt;</span>true<span style="color:#062873;font-weight:bold">&lt;/optional&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>  <span style="color:#062873;font-weight:bold">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>  <span style="color:#062873;font-weight:bold">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    <span style="color:#062873;font-weight:bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#062873;font-weight:bold">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    <span style="color:#062873;font-weight:bold">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color:#062873;font-weight:bold">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    <span style="color:#062873;font-weight:bold">&lt;scope&gt;</span>test<span style="color:#062873;font-weight:bold">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>  <span style="color:#062873;font-weight:bold">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>  <span style="color:#062873;font-weight:bold">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    <span style="color:#062873;font-weight:bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#062873;font-weight:bold">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    <span style="color:#062873;font-weight:bold">&lt;artifactId&gt;</span>spring-boot-starter-jdbc<span style="color:#062873;font-weight:bold">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>  <span style="color:#062873;font-weight:bold">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>  <span style="color:#062873;font-weight:bold">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>    <span style="color:#062873;font-weight:bold">&lt;groupId&gt;</span>com.h2database<span style="color:#062873;font-weight:bold">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    <span style="color:#062873;font-weight:bold">&lt;artifactId&gt;</span>h2<span style="color:#062873;font-weight:bold">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>    <span style="color:#062873;font-weight:bold">&lt;scope&gt;</span>runtime<span style="color:#062873;font-weight:bold">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>  <span style="color:#062873;font-weight:bold">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>  <span style="color:#062873;font-weight:bold">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>  <span style="color:#062873;font-weight:bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#062873;font-weight:bold">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>  <span style="color:#062873;font-weight:bold">&lt;artifactId&gt;</span>spring-boot-starter-thymeleaf<span style="color:#062873;font-weight:bold">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>  <span style="color:#062873;font-weight:bold">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span><span style="color:#062873;font-weight:bold">&lt;/dependencies&gt;</span>
+</span></span></code></pre></div><p><em>Dependencies needed for the project</em></p>
+<h2 id="modelviewcontroller">Model&ndash;View&ndash;Controller</h2>
+<p>When writing applications in Java Springboot, we use a software architectural pattern called MVC which is made of three distinct elements:</p>
+<ul>
+<li>The model, the internal representations of information</li>
+<li>The view, the interface that presents information to and accepts it from the user</li>
+<li>The controller, the software linking the two</li>
+</ul>
+<p>Let&rsquo;s start with the view. Create a new folder called templates and add an index.html file inside it. Next, create a controller in the controllers folder to serve that template. Once that&rsquo;s set up, start the development server with: <em>./mvnw spring-boot:run</em>.</p>
+<p>You can grab the starter code from GitHub if you&rsquo;d like, or push yourself to build the frontend using a framework you haven&rsquo;t tried before like Svelte or React. I personally built the UI with Vue 3, splitting key sections into Thymeleaf fragments, and styling it with some fantasy-inspired medieval fonts ⚔️ I found online. I won&rsquo;t dwell too much on the frontend since it&rsquo;s fairly straightforward, but my favorite touches are the music playback feature and the CSS glass effect (thanks to <a href="https://css-tricks.com/backdrop-filter-effect-with-css/">CSS Tricks</a>).</p>
+<h2 id="setting-up-the-controller--database">Setting up the Controller &amp; Database</h2>
+<p>For data persistence, we&rsquo;ll be using H2, a lightweight relational database management system. In this tutorial, I&rsquo;ll stick with an in-memory database, though you can easily configure it to run on disk if you prefer.</p>
+<p>You&rsquo;ll just need to update the database settings in your application.properties. For an in-memory setup, it should look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#4070a0">spring.application.name</span><span style="color:#666">=</span><span style="color:#4070a0">fantasy-ledger</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#4070a0">server.port</span><span style="color:#666">=</span><span style="color:#4070a0">3007</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#60a0b0;font-style:italic"># H2 memory db setup</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#4070a0">spring.datasource.url</span><span style="color:#666">=</span><span style="color:#4070a0">jdbc:h2:mem:testdb</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#4070a0">spring.datasource.driverClassName</span><span style="color:#666">=</span><span style="color:#4070a0">org.h2.Driver</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#4070a0">spring.datasource.username</span><span style="color:#666">=</span><span style="color:#4070a0">sa</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span><span style="color:#4070a0">spring.datasource.password</span><span style="color:#666">=</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span><span style="color:#4070a0">spring.h2.console.enabled</span><span style="color:#666">=</span><span style="color:#4070a0">true</span>
+</span></span></code></pre></div><p>So, to recap: we now have a frontend view and a database set up, but nothing yet to connect the two. This is where our controller comes in. Create a new controller with four routes <strong>GET</strong>, <strong>PATCH</strong>, <strong>POST</strong> and <strong>DELETE</strong> matching the ones used in your frontend. Your code should look something like this.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#007020;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">CrudController</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#bbb">  </span><span style="color:#555;font-weight:bold">@Autowired</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">private</span><span style="color:#bbb"> </span>JdbcTemplate<span style="color:#bbb"> </span>db;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#bbb">  </span><span style="color:#555;font-weight:bold">@GetMapping</span>(<span style="color:#4070a0">&#34;/entries&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">public</span><span style="color:#bbb"> </span>List<span style="color:#666">&lt;</span>Map<span style="color:#666">&lt;</span>String,<span style="color:#bbb"> </span>Object<span style="color:#666">&gt;&gt;</span><span style="color:#bbb"> </span><span style="color:#06287e">getEntries</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#bbb">    </span><span style="color:#007020;font-weight:bold">return</span><span style="color:#bbb"> </span>db.<span style="color:#4070a0">queryForList</span>(<span style="color:#4070a0">&#34;SELECT id as \&#34;id\&#34;, title as \&#34;title\&#34;, description as \&#34;description\&#34; FROM entries&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#bbb">  </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#bbb">  </span><span style="color:#555;font-weight:bold">@DeleteMapping</span>(<span style="color:#4070a0">&#34;/entries/{id}&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">public</span><span style="color:#bbb"> </span>List<span style="color:#666">&lt;</span>Map<span style="color:#666">&lt;</span>String,<span style="color:#bbb"> </span>Object<span style="color:#666">&gt;&gt;</span><span style="color:#bbb"> </span><span style="color:#06287e">deleteEntries</span>(<span style="color:#555;font-weight:bold">@PathVariable</span><span style="color:#bbb"> </span><span style="color:#902000">long</span><span style="color:#bbb"> </span>id)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#bbb">    </span>db.<span style="color:#4070a0">update</span>(<span style="color:#4070a0">&#34;DELETE FROM entries WHERE id = ?&#34;</span>,<span style="color:#bbb"> </span>id);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#bbb">    </span><span style="color:#007020;font-weight:bold">return</span><span style="color:#bbb"> </span>db.<span style="color:#4070a0">queryForList</span>(<span style="color:#4070a0">&#34;SELECT id as \&#34;id\&#34;, title as \&#34;title\&#34;, description as \&#34;description\&#34; FROM entries&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#bbb">  </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#bbb">  </span><span style="color:#555;font-weight:bold">@PostMapping</span>(<span style="color:#4070a0">&#34;/entries&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">public</span><span style="color:#bbb"> </span>Map<span style="color:#666">&lt;</span>String,String<span style="color:#666">&gt;</span><span style="color:#bbb"> </span><span style="color:#06287e">createEntry</span>(<span style="color:#555;font-weight:bold">@RequestBody</span><span style="color:#bbb"> </span>Entry<span style="color:#bbb"> </span>entry)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#bbb">    </span>db.<span style="color:#4070a0">update</span>(<span style="color:#4070a0">&#34;INSERT INTO entries(id, title, description) VALUES(?, ?, ?)&#34;</span>,<span style="color:#bbb"> </span>entry.<span style="color:#4070a0">getId</span>(),<span style="color:#bbb"> </span>entry.<span style="color:#4070a0">getTitle</span>(),<span style="color:#bbb"> </span>entry.<span style="color:#4070a0">getDescription</span>());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="color:#bbb">    </span><span style="color:#007020;font-weight:bold">return</span><span style="color:#bbb"> </span>Map.<span style="color:#4070a0">of</span>(<span style="color:#4070a0">&#34;status&#34;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;success&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#bbb">  </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="color:#bbb">  </span><span style="color:#555;font-weight:bold">@PatchMapping</span>(<span style="color:#4070a0">&#34;/entries&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">public</span><span style="color:#bbb"> </span>Map<span style="color:#666">&lt;</span>String,String<span style="color:#666">&gt;</span><span style="color:#bbb"> </span><span style="color:#06287e">updateEntry</span>(<span style="color:#555;font-weight:bold">@RequestBody</span><span style="color:#bbb"> </span>Entry<span style="color:#bbb"> </span>entry)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span><span style="color:#bbb">    </span>db.<span style="color:#4070a0">update</span>(<span style="color:#4070a0">&#34;UPDATE entries SET title = ?, description = ? WHERE id = ?&#34;</span>,<span style="color:#bbb">  </span>entry.<span style="color:#4070a0">getTitle</span>(),<span style="color:#bbb"> </span>entry.<span style="color:#4070a0">getDescription</span>(),<span style="color:#bbb"> </span>entry.<span style="color:#4070a0">getId</span>());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#bbb">    </span><span style="color:#007020;font-weight:bold">return</span><span style="color:#bbb"> </span>Map.<span style="color:#4070a0">of</span>(<span style="color:#4070a0">&#34;status&#34;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;success&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span><span style="color:#bbb">  </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>I&rsquo;ve also added an Entry class (a DTO, or Data Transfer Object), which defines the data models being passed around. For simple return objects, it&rsquo;s often best to use a Map, but for more complex data structures, you&rsquo;ll want to use POJO classes. On top of that, I used the <em>@PostConstruct</em> annotation to handle some initial database setup before the application launches, including creating a table for our entries and populating it with some sample data.</p>
+<h2 id="final-result">Final Result</h2>
+<p><img src="../images/building-fantasy-ledger-java-spring-boot/application.jpg" alt="Image of the final result">
+<em>The final result!</em></p>
+<p>And there we have it, a fully functional, fantasy-themed CRUD application 🔥 built with Java Spring Boot. The complete source code is available on GitHub, but I&rsquo;d recommend going beyond just reading it: experiment, break things, fix them and push yourself to add new features. That&rsquo;s the best way to really level up your skills.</p>
+<p>In the next post, we&rsquo;ll take things a step further by dockerising the application and deploying it to the cloud.</p>
+<p>Thanks for following along!</p>
+
+</content>
+
+
+
+<p>
+  
+  <a href="//localhost:1313/blog/java/">#Java</a>
+  
+  <a href="//localhost:1313/blog/springboot/">#Springboot</a>
+  
+  <a href="//localhost:1313/blog/crud/">#Crud</a>
+  
+  <a href="//localhost:1313/blog/engineering/">#Engineering</a>
+  
+  <a href="//localhost:1313/blog/mvc/">#Mvc</a>
+  
+  <a href="//localhost:1313/blog/backend/">#Backend</a>
+  
+  <a href="//localhost:1313/blog/frontend/">#Frontend</a>
+  
+  <a href="//localhost:1313/blog/tutorial/">#Tutorial</a>
+  
+  <a href="//localhost:1313/blog/github/">#Github</a>
+  
+  <a href="//localhost:1313/blog/fantasy/">#Fantasy</a>
+  
+  <a href="//localhost:1313/blog/ledger/">#Ledger</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>
