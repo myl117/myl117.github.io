@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Database on ( •–•) Mo Codes</title>
-    <link>//localhost:1313/blog/database/</link>
+    <link>/blog/database/</link>
     <description>Recent content in Database on ( •–•) Mo Codes</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
     <lastBuildDate>Fri, 05 Sep 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/blog/database/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/blog/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Building a Tiny Cron Scheduler With Go</title>
-      <link>//localhost:1313/building-a-tiny-cron-scheduler-with-go/</link>
+      <title>Deploying Our Fantasy Ledger to the Cloud</title>
+      <link>/deploying-our-fantasy-ledger-to-the-cloud/</link>
       <pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/building-a-tiny-cron-scheduler-with-go/</guid>
-      <description></description>
+      <guid>/deploying-our-fantasy-ledger-to-the-cloud/</guid>
+      <description>&lt;p&gt;Previously, we built a fantasy ledger application in Java Spring Boot, whipped up a frontend and hooked it up to an in-memory SQL database all while sticking to the principles of MVC.&lt;/p&gt;&#xA;&lt;p&gt;That&amp;rsquo;s great and all, but the only way to actually interact with our app is by running it locally, which can be a bit of a hassle 🤦 to set up every time. We want our creation to be accessible from every corner of the realm 🌎, not just a single device. Today, we&amp;rsquo;re going to fix that by dockerising our application and launching it on a cloud platform called &lt;a href=&#34;http://fly.io&#34;&gt;Fly.io&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
