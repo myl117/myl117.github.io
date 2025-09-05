@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="//localhost:1313/images/favicon.png" />
+<title>Deploying Our Fantasy Ledger to the Cloud | ( •–•) Mo Codes</title>
+<meta name="title" content="Deploying Our Fantasy Ledger to the Cloud" />
+<meta name="description" content="Previously, we built a fantasy ledger application in Java Spring Boot, whipped up a frontend and hooked it up to an in-memory SQL database all while sticking to the principles of MVC.
+That&rsquo;s great and all, but the only way to actually interact with our app is by running it locally, which can be a bit of a hassle 🤦 to set up every time. We want our creation to be accessible from every corner of the realm 🌎, not just a single device. Today, we&rsquo;re going to fix that by dockerising our application and launching it on a cloud platform called Fly.io." />
+<meta name="keywords" content="java,springboot,crud,backend,tutorial,hosting,docker,database," />
+
+
+<meta property="og:url" content="//localhost:1313/deploying-our-fantasy-ledger-to-the-cloud/">
+  <meta property="og:site_name" content="( •–•) Mo Codes">
+  <meta property="og:title" content="Deploying Our Fantasy Ledger to the Cloud">
+  <meta property="og:description" content="Previously, we built a fantasy ledger application in Java Spring Boot, whipped up a frontend and hooked it up to an in-memory SQL database all while sticking to the principles of MVC.
+That’s great and all, but the only way to actually interact with our app is by running it locally, which can be a bit of a hassle 🤦 to set up every time. We want our creation to be accessible from every corner of the realm 🌎, not just a single device. Today, we’re going to fix that by dockerising our application and launching it on a cloud platform called Fly.io.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-09-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-05T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Springboot">
+    <meta property="article:tag" content="Crud">
+    <meta property="article:tag" content="Backend">
+    <meta property="article:tag" content="Tutorial">
+    <meta property="article:tag" content="Hosting">
+    <meta property="og:image" content="//localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="//localhost:1313/images/share.png">
+  <meta name="twitter:title" content="Deploying Our Fantasy Ledger to the Cloud">
+  <meta name="twitter:description" content="Previously, we built a fantasy ledger application in Java Spring Boot, whipped up a frontend and hooked it up to an in-memory SQL database all while sticking to the principles of MVC.
+That’s great and all, but the only way to actually interact with our app is by running it locally, which can be a bit of a hassle 🤦 to set up every time. We want our creation to be accessible from every corner of the realm 🌎, not just a single device. Today, we’re going to fix that by dockerising our application and launching it on a cloud platform called Fly.io.">
+
+
+
+
+  <meta itemprop="name" content="Deploying Our Fantasy Ledger to the Cloud">
+  <meta itemprop="description" content="Previously, we built a fantasy ledger application in Java Spring Boot, whipped up a frontend and hooked it up to an in-memory SQL database all while sticking to the principles of MVC.
+That’s great and all, but the only way to actually interact with our app is by running it locally, which can be a bit of a hassle 🤦 to set up every time. We want our creation to be accessible from every corner of the realm 🌎, not just a single device. Today, we’re going to fix that by dockerising our application and launching it on a cloud platform called Fly.io.">
+  <meta itemprop="datePublished" content="2025-09-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-09-05T00:00:00+00:00">
+  <meta itemprop="wordCount" content="467">
+  <meta itemprop="image" content="//localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Java,Springboot,Crud,Backend,Tutorial,Hosting,Docker,Database">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="../" class="title">
+  <h2>( •–•) Mo Codes</h2>
+</a>
+<nav>
+<a href="../">Home</a>
+
+<a href="../blog/">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Deploying Our Fantasy Ledger to the Cloud</h1>
+<p>
+  <i>
+    <time datetime='2025-09-05'>
+      05 Sep, 2025
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>Previously, we built a fantasy ledger application in Java Spring Boot, whipped up a frontend and hooked it up to an in-memory SQL database all while sticking to the principles of MVC.</p>
+<p>That&rsquo;s great and all, but the only way to actually interact with our app is by running it locally, which can be a bit of a hassle 🤦 to set up every time. We want our creation to be accessible from every corner of the realm 🌎, not just a single device. Today, we&rsquo;re going to fix that by dockerising our application and launching it on a cloud platform called <a href="http://fly.io">Fly.io</a>.</p>
+<p>To follow along, you&rsquo;ll need to:</p>
+<ul>
+<li>Install <a href="https://docs.docker.com/get-started/get-docker/">Docker </a></li>
+<li>Create a Fly.io account</li>
+<li>Install the <a href="https://fly.io/docs/flyctl/">Fly.io CLI</a></li>
+</ul>
+<h2 id="dockerising-our-app">Dockerising Our App</h2>
+<p><img src="../images/deploying-fantasy-ledger-cloud/meme.jpg" alt="Docker meme"></p>
+<p>Before we dive in, let&rsquo;s take a moment to understand what Docker 🐋 is and why it&rsquo;s such a game-changer. Docker was born in 2013, created by Solomon Hykes as part of a project at a company called dotCloud, which later evolved into Docker, Inc. Back in the day, developers and sysadmins had to manually SSH into servers, install dependencies, and configure runtime environments. As you can imagine, this was far from efficient and issues like &ldquo;It works on my machine&rdquo; were all too common.</p>
+<p>Let&rsquo;s get started. First, run the command: <em>./mvnw clean package -DskipTests</em>.</p>
+<p>This will generate a JAR file in target/*.jar. Next, we&rsquo;ll create a Dockerfile to build a lightweight container that can host our application.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#60a0b0;font-style:italic"># Use a JDK base image</span><span style="">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style=""></span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#4070a0"> eclipse-temurin:21-jdk-alpine AS builder</span><span style="">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style=""></span><span style="color:#60a0b0;font-style:italic"># Copy the jar file into the container</span><span style="">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style=""></span><span style="color:#007020;font-weight:bold">ARG</span> <span style="color:#bb60d5">JAR_FILE</span><span style="color:#666">=</span>target/*.jar<span style="">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style=""></span><span style="color:#007020;font-weight:bold">COPY</span> <span style="color:#70a0d0">${</span><span style="color:#bb60d5">JAR_FILE</span><span style="color:#70a0d0">}</span> app.jar<span style="">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span><span style=""></span><span style="color:#60a0b0;font-style:italic"># Run the jar</span><span style="">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span><span style=""></span><span style="color:#007020;font-weight:bold">ENTRYPOINT</span> [<span style="color:#4070a0">&#34;java&#34;</span>,<span style="color:#4070a0">&#34;-jar&#34;</span>,<span style="color:#4070a0">&#34;/app.jar&#34;</span>]<span style="">
+</span></span></span></code></pre></div><p><em>Dockerfile using the eclipse-temurin:21-jdk-alpine base image</em></p>
+<p>Now let’s build and run our Docker image locally. Execute the following commands (make sure to swap in the port number used in your application config):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>docker build -t my-springboot-app .
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>docker run -p 3007:3007 my-springboot-app
+</span></span></code></pre></div><p>Open your browser and go to <em>localhost:&lt;port&gt;</em> to verify everything is running correctly.</p>
+<h2 id="deploy-on-flyio">Deploy on Fly.io</h2>
+<p>If you haven’t done so yet, install flyctl with: <em>curl -L <a href="https://fly.io/install.sh">https://fly.io/install.sh</a> | sh</em> and then log in using: <em>flyctl auth login</em>. Next, initialise your application with <em>flyctl launch</em>.It will prompt you for an app name, region, and other details then create a fly.toml configuration file 🛠️ for you.</p>
+<p>Finally, deploy your app with: <em>flyctl deploy</em>. This command will build your Docker image (using your Dockerfile), push it to Fly.io and deploy it. Once done, you can access your application at: &lt;app-name&gt;.fly.dev!</p>
+<p>And that wraps up our journey! I highly recommend experimenting: try adding new features to the app, switch to a persistent database or connect to Fly.io’s managed PostgreSQL service. As always, you can view the full Github code <a href="https://github.com/myl117/ledger-journal-app">here</a> and the hosted application <a href="https://ledger-journal-app.fly.dev/">here</a>.</p>
+<p>Thanks for following along and best of luck on your adventures!</p>
+
+</content>
+
+
+
+<p>
+  
+  <a href="//localhost:1313/blog/java/">#Java</a>
+  
+  <a href="//localhost:1313/blog/springboot/">#Springboot</a>
+  
+  <a href="//localhost:1313/blog/crud/">#Crud</a>
+  
+  <a href="//localhost:1313/blog/backend/">#Backend</a>
+  
+  <a href="//localhost:1313/blog/tutorial/">#Tutorial</a>
+  
+  <a href="//localhost:1313/blog/hosting/">#Hosting</a>
+  
+  <a href="//localhost:1313/blog/docker/">#Docker</a>
+  
+  <a href="//localhost:1313/blog/database/">#Database</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>
