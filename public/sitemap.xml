@@ -2,73 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/</loc>
+    <loc>//localhost:1313/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/</loc>
+    <loc>//localhost:1313/blog/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/backend/</loc>
+    <loc>//localhost:1313/blog/backend/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/building-a-fantasy-ledger-with-java-spring-boot/</loc>
+    <loc>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/crud/</loc>
+    <loc>//localhost:1313/blog/crud/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/engineering/</loc>
+    <loc>//localhost:1313/blog/engineering/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/fantasy/</loc>
+    <loc>//localhost:1313/blog/fantasy/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/frontend/</loc>
+    <loc>//localhost:1313/blog/frontend/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/github/</loc>
+    <loc>//localhost:1313/blog/github/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/java/</loc>
+    <loc>//localhost:1313/blog/java/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/ledger/</loc>
+    <loc>//localhost:1313/blog/ledger/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/mvc/</loc>
+    <loc>//localhost:1313/blog/mvc/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/springboot/</loc>
+    <loc>//localhost:1313/blog/springboot/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/tutorial/</loc>
+    <loc>//localhost:1313/blog/tutorial/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/building-a-tiny-cron-scheduler-with-go/</loc>
+    <loc>//localhost:1313/building-a-tiny-cron-scheduler-with-go/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/docker/</loc>
+    <loc>//localhost:1313/blog/docker/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/fiber/</loc>
+    <loc>//localhost:1313/blog/fiber/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/go/</loc>
+    <loc>//localhost:1313/blog/go/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/hosted/</loc>
+    <loc>//localhost:1313/blog/hosted/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/optimisation/</loc>
+    <loc>//localhost:1313/blog/optimisation/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/markdown/</loc>
+    <loc>//localhost:1313/blog/markdown/</loc>
     <lastmod>2020-01-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/markdown-syntax-guide/</loc>
+    <loc>//localhost:1313/markdown-syntax-guide/</loc>
     <lastmod>2020-01-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/syntax/</loc>
+    <loc>//localhost:1313/blog/syntax/</loc>
     <lastmod>2020-01-03T00:00:00+00:00</lastmod>
   </url>
 </urlset>

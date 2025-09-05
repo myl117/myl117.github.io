@@ -5,14 +5,11 @@ tags = [
     "java",
     "springboot",
     "crud",
-    "engineering",
     "mvc",
     "backend",
     "frontend",
     "tutorial",
     "github",
-    "fantasy",
-    "ledger"
 ]
 +++
 
