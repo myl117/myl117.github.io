@@ -2,39 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on ( •–•) Mo Codes</title>
-    <link>/</link>
+    <link>//localhost:1313/</link>
     <description>Recent content in Home on ( •–•) Mo Codes</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
-    <lastBuildDate>Fri, 05 Sep 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Beans for Absolute Beginners</title>
+      <link>//localhost:1313/spring-beans-for-absolute-beginners/</link>
+      <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/spring-beans-for-absolute-beginners/</guid>
+      <description>&lt;p&gt;If you’ve ever dabbled in the Java Spring framework specifically Spring Boot 🍃, chances are you’ve come across the term beans. Sure, you could pretend they don’t exist and temporarily dodge the headache of figuring them out but let’s be honest, that only delays the inevitable. Don’t worry, though: this article is your guide out of that loop. By the end, you’ll have a clear understanding of what Spring beans 🫘 are and how their lifecycle works. No more guesswork, no more suffering.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Deploying Our Fantasy Ledger to the Cloud</title>
-      <link>/deploying-our-fantasy-ledger-to-the-cloud/</link>
+      <link>//localhost:1313/deploying-our-fantasy-ledger-to-the-cloud/</link>
       <pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>/deploying-our-fantasy-ledger-to-the-cloud/</guid>
+      <guid>//localhost:1313/deploying-our-fantasy-ledger-to-the-cloud/</guid>
       <description>&lt;p&gt;Previously, we built a fantasy ledger application in Java Spring Boot, whipped up a frontend and hooked it up to an in-memory SQL database all while sticking to the principles of MVC.&lt;/p&gt;&#xA;&lt;p&gt;That&amp;rsquo;s great and all, but the only way to actually interact with our app is by running it locally, which can be a bit of a hassle 🤦 to set up every time. We want our creation to be accessible from every corner of the realm 🌎, not just a single device. Today, we&amp;rsquo;re going to fix that by dockerising our application and launching it on a cloud platform called &lt;a href=&#34;http://fly.io&#34;&gt;Fly.io&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building a Fantasy Ledger With Java Spring Boot</title>
-      <link>/building-a-fantasy-ledger-with-java-spring-boot/</link>
+      <link>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>/building-a-fantasy-ledger-with-java-spring-boot/</guid>
+      <guid>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</guid>
       <description>&lt;p&gt;I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of databases, CRUD operations and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.&lt;/p&gt;&#xA;&lt;p&gt;Since I’m a huge fan of fantasy media 🧝‍♂️ and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building a Tiny Cron Scheduler With Go</title>
-      <link>/building-a-tiny-cron-scheduler-with-go/</link>
+      <link>//localhost:1313/building-a-tiny-cron-scheduler-with-go/</link>
       <pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>/building-a-tiny-cron-scheduler-with-go/</guid>
+      <guid>//localhost:1313/building-a-tiny-cron-scheduler-with-go/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re anything like me, you&amp;rsquo;ve probably got a bunch of scheduled tasks running in the cloud whether it&amp;rsquo;s automation, IoT projects, data processing or just random experiments. My go-to approach has been to dockerize mini servers and deploy them on platforms like GCP or AWS. But getting something up and running on Cloud Run or Lambda isn&amp;rsquo;t as lightweight as it sounds. You still need to push images to a registry, wire up an API gateway and set up a scheduler like Cloud Scheduler on GCP.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>/markdown-syntax-guide/</link>
+      <link>//localhost:1313/markdown-syntax-guide/</link>
       <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>/markdown-syntax-guide/</guid>
+      <guid>//localhost:1313/markdown-syntax-guide/</guid>
       <description>&lt;p&gt;For a quick cheatsheet, check out &lt;a href=&#34;https://simplemde.com/markdown-guide&#34;&gt;https://simplemde.com/markdown-guide&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
   </channel>
