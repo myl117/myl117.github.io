@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring on ( •–•) Mo Codes</title>
+    <link>//localhost:1313/blog/spring/</link>
+    <description>Recent content in Spring on ( •–•) Mo Codes</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2020, Jane Doe.</copyright>
+    <lastBuildDate>Fri, 19 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/blog/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Beans for Absolute Beginners</title>
+      <link>//localhost:1313/spring-beans-for-absolute-beginners/</link>
+      <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/spring-beans-for-absolute-beginners/</guid>
+      <description>&lt;p&gt;If you’ve ever dabbled in the Java Spring framework specifically Spring Boot, chances are you’ve come across the term beans. Sure, you could pretend they don’t exist and temporarily dodge the headache of figuring them out but let’s be honest, that only delays the inevitable. Don’t worry, though: this article is your guide out of that loop. By the end, you’ll have a clear understanding of what Spring beans are and how their lifecycle works. No more guesswork, no more suffering.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
