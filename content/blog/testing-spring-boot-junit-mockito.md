@@ -12,7 +12,7 @@ tags = [
 ]
 +++
 
-In October 2018 and March 2019, Boeing's 737 MAX was involved in two fatal crashes resulting in the loss of 346 lives as well as billions in fines, lawsuits and a lasting damage to Boeing's reputation. The [cause of these crashes](https://www.youtube.com/watch?v=H2tuKiiznsY): faulty sensor data caused the MCAS (Maneuvering Characteristics Augmentation System) to activate inappropriately. The software wasn't tested adequately against single-sensor failure.
+In October 2018 and March 2019, Boeing's 737 MAX ✈️ was involved in two fatal crashes resulting in the loss of 346 lives as well as billions in fines, lawsuits and a lasting damage to Boeing's reputation. The [cause of these crashes](https://www.youtube.com/watch?v=H2tuKiiznsY): faulty sensor data caused the MCAS (Maneuvering Characteristics Augmentation System) to activate inappropriately. The software wasn't tested adequately against single-sensor failure.
 
 It's important to note that unit testing alone would not have saved the 737 MAX but had the MCAS system been more rigorously tested, its assumptions may have been questioned with more scrutiny and raised flags earlier.
 
@@ -22,7 +22,7 @@ Now it's fair to say most of us won't be writing software that controls highly s
 
 ![Spring Beans meme](/images/testing-spring-boot-junit-mockito/meme.jpg)
 
-Today, we'll explore how to add tests to an existing Spring Boot application. Feel free to adapt the examples to fit your own projects. For this walkthrough, I'll be adding tests to a small authentication microservice I've been developing.
+Today, we'll explore how to add tests to an existing Spring Boot application. Feel free to adapt the examples to fit your own projects. For this walkthrough, I'll be adding tests to a small authentication microservice 🔒 I've been developing.
 
 To get started, we'll add the Spring Boot Starter Test dependency to our project.
 
@@ -124,7 +124,7 @@ The Hamcrest assertion reads more like a sentence:  "assert that result is 5".
 
 ## Writing Tests
 
-Now that we understand the core libraries needed to write tests for our Java applications and their purposes, let’s put them into action. I’ll be working with a small authentication microservice I’ve been developing — you can view the full code [here](https://github.com/myl117/authservice).
+Now that we understand the core libraries needed to write tests for our Java applications and their purposes, let’s put them into action. You can find the full code for the authentication microservice I’ll be working with [here](https://github.com/myl117/authservice).
 
 Specifically, we’ll be testing the signup functionality, which is primarily implemented in two files: _SignupService.java_ and _SignupController.java_.
 
@@ -328,7 +328,7 @@ So if the _Signup()_ method throws the correct exception, the test passes.
 
 ## Web Layer Testing
 
-Now that we’ve tested our service and confirmed it works as expected, let’s move on to testing the web layer of our signup system, specifically the HTTP aspects: routes, status codes and responses.
+Now that we’ve tested our service and confirmed it works as expected, let’s move on to testing the web layer 🌐 of our signup system, specifically the HTTP aspects: routes, status codes and responses.
 
 We’ll use Spring’s MockMvc, which we discussed earlier, to simulate real HTTP requests without starting an actual server.
 
