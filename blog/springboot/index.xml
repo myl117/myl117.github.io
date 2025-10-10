@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
-    <lastBuildDate>Fri, 19 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/springboot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Testing in Spring Boot With Junit and Mockito</title>
+      <link>/testing-in-spring-boot-with-junit-and-mockito/</link>
+      <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>/testing-in-spring-boot-with-junit-and-mockito/</guid>
+      <description>&lt;p&gt;In October 2018 and March 2019, Boeing&amp;rsquo;s 737 MAX was involved in two fatal crashes resulting in the loss of 346 lives as well as billions in fines, lawsuits and a lasting damage to Boeing&amp;rsquo;s reputation. The &lt;a href=&#34;https://www.youtube.com/watch?v=H2tuKiiznsY&#34;&gt;cause of these crashes&lt;/a&gt;: faulty sensor data caused the MCAS (Maneuvering Characteristics Augmentation System) to activate inappropriately. The software wasn&amp;rsquo;t tested adequately against single-sensor failure.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s important to note that unit testing alone would not have saved the 737 MAX but had the MCAS system been more rigorously tested, its assumptions may have been questioned with more scrutiny and raised flags earlier.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Spring Beans for Absolute Beginners</title>
       <link>/spring-beans-for-absolute-beginners/</link>

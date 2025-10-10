@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Spring on ( •–•) Mo Codes</title>
-    <link>/blog/spring/</link>
-    <description>Recent content in Spring on ( •–•) Mo Codes</description>
+    <title>Testing on ( •–•) Mo Codes</title>
+    <link>/blog/testing/</link>
+    <description>Recent content in Testing on ( •–•) Mo Codes</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
     <lastBuildDate>Fri, 10 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/blog/spring/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/blog/testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Testing in Spring Boot With Junit and Mockito</title>
       <link>/testing-in-spring-boot-with-junit-and-mockito/</link>
       <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
       <guid>/testing-in-spring-boot-with-junit-and-mockito/</guid>
       <description>&lt;p&gt;In October 2018 and March 2019, Boeing&amp;rsquo;s 737 MAX was involved in two fatal crashes resulting in the loss of 346 lives as well as billions in fines, lawsuits and a lasting damage to Boeing&amp;rsquo;s reputation. The &lt;a href=&#34;https://www.youtube.com/watch?v=H2tuKiiznsY&#34;&gt;cause of these crashes&lt;/a&gt;: faulty sensor data caused the MCAS (Maneuvering Characteristics Augmentation System) to activate inappropriately. The software wasn&amp;rsquo;t tested adequately against single-sensor failure.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s important to note that unit testing alone would not have saved the 737 MAX but had the MCAS system been more rigorously tested, its assumptions may have been questioned with more scrutiny and raised flags earlier.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring Beans for Absolute Beginners</title>
-      <link>/spring-beans-for-absolute-beginners/</link>
-      <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>/spring-beans-for-absolute-beginners/</guid>
-      <description>&lt;p&gt;If you’ve ever dabbled in the Java Spring framework specifically Spring Boot 🍃, chances are you’ve come across the term beans. Sure, you could pretend they don’t exist and temporarily dodge the headache of figuring them out but let’s be honest, that only delays the inevitable. Don’t worry, though: this article is your guide out of that loop. By the end, you’ll have a clear understanding of what Spring beans 🫘 are and how their lifecycle works. No more guesswork, no more suffering.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
