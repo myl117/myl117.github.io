@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
-    <lastBuildDate>Fri, 10 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Making Sense of React Hooks</title>
+      <link>/making-sense-of-react-hooks/</link>
+      <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>/making-sense-of-react-hooks/</guid>
+      <description>&lt;p&gt;Recently, the company I work for switched their frontend web framework from Vue.js to React.js. I think it’s fair to say that React has a harder learning curve 📈 than Vue.js. Vue is also arguably smarter when it comes to change detection and re-rendering as you don’t have to worry about passing in dependencies to computed/watched/side effects. With React ⚛️ on the other hand, it’s a lot easier to shoot yourself in the foot if you overlook the nuances of the framework. One of the distinct features in React.js are hooks.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Testing in Spring Boot With Junit and Mockito</title>
       <link>/testing-in-spring-boot-with-junit-and-mockito/</link>
