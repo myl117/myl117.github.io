@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="../images/favicon.png" />
+<title>Making Sense of React Hooks | ( •–•) Mo Codes</title>
+<meta name="title" content="Making Sense of React Hooks" />
+<meta name="description" content="Recently, the company I work for switched their frontend web framework from Vue.js to React.js. I think it’s fair to say that React has a harder learning curve 📈 than Vue.js. Vue is also arguably smarter when it comes to change detection and re-rendering as you don’t have to worry about passing in dependencies to computed/watched/side effects. With React ⚛️ on the other hand, it’s a lot easier to shoot yourself in the foot if you overlook the nuances of the framework. One of the distinct features in React.js are hooks." />
+<meta name="keywords" content="react,hooks,vue,frontend,tutorial," />
+
+
+<meta property="og:url" content="/making-sense-of-react-hooks/">
+  <meta property="og:site_name" content="( •–•) Mo Codes">
+  <meta property="og:title" content="Making Sense of React Hooks">
+  <meta property="og:description" content="Recently, the company I work for switched their frontend web framework from Vue.js to React.js. I think it’s fair to say that React has a harder learning curve 📈 than Vue.js. Vue is also arguably smarter when it comes to change detection and re-rendering as you don’t have to worry about passing in dependencies to computed/watched/side effects. With React ⚛️ on the other hand, it’s a lot easier to shoot yourself in the foot if you overlook the nuances of the framework. One of the distinct features in React.js are hooks.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-12-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-14T00:00:00+00:00">
+    <meta property="article:tag" content="React">
+    <meta property="article:tag" content="Hooks">
+    <meta property="article:tag" content="Vue">
+    <meta property="article:tag" content="Frontend">
+    <meta property="article:tag" content="Tutorial">
+    <meta property="og:image" content="/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Making Sense of React Hooks">
+  <meta name="twitter:description" content="Recently, the company I work for switched their frontend web framework from Vue.js to React.js. I think it’s fair to say that React has a harder learning curve 📈 than Vue.js. Vue is also arguably smarter when it comes to change detection and re-rendering as you don’t have to worry about passing in dependencies to computed/watched/side effects. With React ⚛️ on the other hand, it’s a lot easier to shoot yourself in the foot if you overlook the nuances of the framework. One of the distinct features in React.js are hooks.">
+
+
+
+
+  <meta itemprop="name" content="Making Sense of React Hooks">
+  <meta itemprop="description" content="Recently, the company I work for switched their frontend web framework from Vue.js to React.js. I think it’s fair to say that React has a harder learning curve 📈 than Vue.js. Vue is also arguably smarter when it comes to change detection and re-rendering as you don’t have to worry about passing in dependencies to computed/watched/side effects. With React ⚛️ on the other hand, it’s a lot easier to shoot yourself in the foot if you overlook the nuances of the framework. One of the distinct features in React.js are hooks.">
+  <meta itemprop="datePublished" content="2025-12-14T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-14T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1126">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="React,Hooks,Vue,Frontend,Tutorial">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="../" class="title">
+  <h2>( •–•) Mo Codes</h2>
+</a>
+<nav>
+<a href="../">Home</a>
+
+<a href="../blog/">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Making Sense of React Hooks</h1>
+<p>
+  <i>
+    <time datetime='2025-12-14'>
+      14 Dec, 2025
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>Recently, the company I work for switched their frontend web framework from Vue.js to React.js. I think it’s fair to say that React has a harder learning curve 📈 than Vue.js. Vue is also arguably smarter when it comes to change detection and re-rendering as you don’t have to worry about passing in dependencies to computed/watched/side effects. With React ⚛️ on the other hand, it’s a lot easier to shoot yourself in the foot if you overlook the nuances of the framework. One of the distinct features in React.js are hooks.</p>
+<p>There is nothing quite like React hooks 🪝 when it comes to how they compose logic although parallels can be drawn with Angular Signals and the Vue Composition API. In this article, I’ll be going over what React hooks are, the 10 most commonly used React hooks and how to make your own React hooks.</p>
+<h2 id="what-are-hooks">What are hooks?</h2>
+<p><img src="../images/making-sense-react-hooks/meme.jpg" alt="Spring Beans meme"></p>
+<p>Is it a thing used to catch people’s attention? The chorus of a song? Or is it maybe a metal instrument that can potentially be strapped to an arm to catch fairies with? The answer is yes to all of those but in the context of React, the definition is such: a special function that lets you use React features like state, side effects and context without writing a class component. They “hook” into React’s internal lifecycle system so you can manage stateful logic inside simple functions.</p>
+<p>Before Hooks, React components were primarily written as class components if you needed state or lifecycle methods which came with a lot of issues. Class components in general require a lot of boilerplate code such as a constructor, <em>this.state</em>, <em>this.setState</em>, binding methods to <em>this</em>, etc. Sharing stateful logic was also more complex as it required higher-order components (HOCs) which made code harder to read and maintain.</p>
+<p>Pair this with confusing lifecycle methods like <em>componentDidMount</em>, <em>componentDidUpdate</em>, <em>componentWillUnmount</em>, etc and React devs were stuck in a perpetual state of “Wrapper Hell”. Kind of like “Callback Hell” 🌋 but with class components. Javascript programmers are already pretty scared of classes and OOP so this was just a nail in the coffin. Some of us still deny that classes were added in ES6 and pretend they don’t exist at all. But that’s a discussion for another day.</p>
+<p>So in brief, React Hooks were introduced to simplify component logic while keeping everything functional and modular.</p>
+<h2 id="the-rules-of-hooks">The Rules of Hooks</h2>
+<p>React Hooks come with a small but strict set of rules which should always be adhered to. These rules aren’t arbitrary, they exist because hooks rely on the order in which they are called to correctly work with state and effects.</p>
+<h3 id="rule-1-only-call-hooks-at-the-top-level">Rule 1: Only call hooks at the top level</h3>
+<p>Hooks must not be called inside loops, conditions or nested functions. React expects hooks to be called in the same order on every render. If that order changes, React cannot reliably associate hook calls with their state. Here’s a bad and good example:</p>
+<p><strong>Bad:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020;font-weight:bold">if</span> (isLoggedIn) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  useEffect(() =&gt; {}, []);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>}
+</span></span></code></pre></div><p><strong>Good:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>useEffect(() =&gt; {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  <span style="color:#007020;font-weight:bold">if</span> (isLoggedIn) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#60a0b0;font-style:italic">// do something
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#60a0b0;font-style:italic"></span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>}, [isLoggedIn]);
+</span></span></code></pre></div><h3 id="rule-2-only-call-hooks-from-react-functions">Rule 2: Only call hooks from React functions</h3>
+<p>Hooks can only be used inside React function components or custom hooks (which we will dabble in later). You cannot use hooks in regular JavaScript functions, class components or event handlers defined outside a React component.</p>
+<h3 id="why-these-rules-exist">Why these rules exist</h3>
+<p>Hooks work by position, not by name. Behind the scenes, React maintains an internal list associated with each function component and iterates through this list using a pointer when the component renders. This is very different from Vue’s Composition API, which tracks dependencies automatically. React trades some safety for explicitness and predictability, which is why plugins like <em>eslint-plugin-react-hooks</em> are practically mandatory in real-world projects.</p>
+<h3 id="the-5-most-commonly-used-hooks">The 5 Most Commonly Used Hooks</h3>
+<p>React.js ships with many hooks but most applications will only require the use of a core subset.</p>
+<h3 id="1-usestate">1. useState</h3>
+<p>This is the most basic hook. It simply allows function components to hold local state.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020;font-weight:bold">const</span> [count, setCount] <span style="color:#666">=</span> useState(<span style="color:#40a070">0</span>);
+</span></span></code></pre></div><p>useState is a simple hook but easy to misuse. Overusing it for derived state or deeply nested objects can quickly lead to messy components.</p>
+<h3 id="2-useeffect">2. useEffect</h3>
+<p>useEffect is used for side effects such as data fetching and subscriptions.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>useEffect(() =&gt; {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  fetchData();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>}, []);
+</span></span></code></pre></div><p>This is also where many developers struggle. Dependency arrays are explicit and can be unforgiving. If you miss a dependency, you risk stale values however, add too many and you may trigger unnecessary re-renders and/or crash the call stack.</p>
+<h3 id="3-usecontext">3. useContext</h3>
+<p>useContext allows you to access values from a React Context without the need for prop drilling.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020;font-weight:bold">const</span> theme <span style="color:#666">=</span> useContext(ThemeContext);
+</span></span></code></pre></div><p>useContext is great for shared data that many components need, but it’s not meant for complex and frequently changing state. For that, a dedicated state management solution like Redux is better.</p>
+<h3 id="4-useref">4. useRef</h3>
+<p>useRef stores a mutable value that persists across renders without causing a re-render.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020;font-weight:bold">const</span> inputRef <span style="color:#666">=</span> useRef(<span style="color:#007020;font-weight:bold">null</span>);
+</span></span></code></pre></div><p>It’s commonly used for accessing DOM elements, but it’s also useful for storing timers, previous values or escape hatches (data that doesn’t naturally belong in React state) where state would be overkill.</p>
+<h3 id="5-usememo-and-usecallback">5. useMemo (and useCallback)</h3>
+<p>These hooks are used for memoization. Pretty self explanatory 😉</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020;font-weight:bold">const</span> expensiveValue <span style="color:#666">=</span> useMemo(() =&gt; compute(), [deps]);
+</span></span></code></pre></div><p>They can improve performance, but premature memoization often makes code harder to read with little real benefit. Measure first and then optimise.</p>
+<h2 id="how-to-make-your-own-custom-hook">How to Make Your Own Custom Hook</h2>
+<p>Custom hooks are where React Hooks really shine. A custom hook is simply a function that calls other hooks and encapsulates reusable logic.</p>
+<p>By convention, custom hooks must start with the word use. The following is an example of a hook that fetches data from an API.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#007020;font-weight:bold">function</span> useFetch(url) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  <span style="color:#007020;font-weight:bold">const</span> [data, setData] <span style="color:#666">=</span> useState(<span style="color:#007020;font-weight:bold">null</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  <span style="color:#007020;font-weight:bold">const</span> [loading, setLoading] <span style="color:#666">=</span> useState(<span style="color:#007020;font-weight:bold">true</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  <span style="color:#007020;font-weight:bold">const</span> [error, setError] <span style="color:#666">=</span> useState(<span style="color:#007020;font-weight:bold">null</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>  useEffect(() =&gt; {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    fetch(url)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>      .then((res) =&gt; res.json())
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>      .then(setData)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>      .<span style="color:#007020;font-weight:bold">catch</span>(setError)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>      .<span style="color:#007020;font-weight:bold">finally</span>(() =&gt; setLoading(<span style="color:#007020;font-weight:bold">false</span>));
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>  }, [url]);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>  <span style="color:#007020;font-weight:bold">return</span> { data, loading, error };
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>}
+</span></span></code></pre></div><p>This allows components to stay clean and declarative:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020;font-weight:bold">const</span> { data, loading, error } <span style="color:#666">=</span> useFetch(<span style="color:#4070a0">&#34;/api/users&#34;</span>);
+</span></span></code></pre></div><p>Custom hooks solve the exact problem that Higher-Order Components and render props attempted to solve but without wrapper hell. They promote reuse, separation of concerns and composability all while keeping components readable.</p>
+<p>And that covers all the essential theory behind React Hooks! We explored what hooks are, the challenges of wrapper hell and how hooks simplify our workflow. We also went through the rules of hooks in React, five of the most commonly used hooks and how to create custom hooks. Mastering these concepts will make it much easier to write clean, reusable and maintainable React code.</p>
+
+</content>
+
+
+
+<p>
+  
+  <a href="../blog/react/">#React</a>
+  
+  <a href="../blog/hooks/">#Hooks</a>
+  
+  <a href="../blog/vue/">#Vue</a>
+  
+  <a href="../blog/frontend/">#Frontend</a>
+  
+  <a href="../blog/tutorial/">#Tutorial</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>
