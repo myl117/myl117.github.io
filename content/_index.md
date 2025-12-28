@@ -12,4 +12,4 @@ Currently living in South Wales.
 
 I write about engineering, mechanics, philosophy and whatever else I find interesting.
 
-[Take a look at my Github](https://github.com/myl117).
+[Essays](https://mo-writes.fly.dev/) | [GitHub](https://github.com/myl117)
