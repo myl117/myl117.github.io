@@ -5,8 +5,6 @@ tags = [
     "react",
     "hooks",
     "vue",
-    "frontend",
-    "tutorial",
 ]
 +++
 

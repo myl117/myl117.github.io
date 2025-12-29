@@ -6,9 +6,6 @@ tags = [
     "springboot",
     "crud",
     "mvc",
-    "backend",
-    "frontend",
-    "tutorial",
     "github",
 ]
 +++

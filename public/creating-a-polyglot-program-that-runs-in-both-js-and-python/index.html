@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="../images/favicon.png" />
+<title>Creating a Polyglot Program That Runs in Both JS and Python | ( •–•) Mo Codes</title>
+<meta name="title" content="Creating a Polyglot Program That Runs in Both JS and Python" />
+<meta name="description" content="Polyglot programs are no new concept. A polyglot is a computer program or script written in a valid form of multiple programming languages or file formats and have been crafted as challenges and curios in hacker culture since at least the early 1990s.
+Here&rsquo;s a popular example of a polyglot written in C, PHP, and Bash:
+ 1 #define a /*
+ 2 #&lt;?php
+ 3 echo &#34;\010Hello, world!\n&#34;;// 2&gt; /dev/null &gt; /dev/null \ ;
+ 4 // 2&gt; /dev/null; x=a;
+ 5 $x=5; // 2&gt; /dev/null \ ;
+ 6 if (($x))
+ 7 // 2&gt; /dev/null; then
+ 8 return 0;
+ 9 // 2&gt; /dev/null; fi
+10 #define e ?&gt;
+11 #define b */
+12 #include &lt;stdio.h&gt;
+13 #define main() int main(void)
+14 #define printf printf(
+15 #define true )
+16 #define function
+17 function main()
+18 {
+19 printf &#34;Hello, world!\n&#34;true/* 2&gt; /dev/null | grep -v true*/;
+20 return 0;
+21 }
+22 #define c /*
+23 main
+24 #*/
+But I had yet to come across a polyglot program that runs both in JavaScript and Python so I set out with the idea of creating such a program. The rules were simple:" />
+<meta name="keywords" content="javascript,python," />
+
+
+<meta property="og:url" content="/creating-a-polyglot-program-that-runs-in-both-js-and-python/">
+  <meta property="og:site_name" content="( •–•) Mo Codes">
+  <meta property="og:title" content="Creating a Polyglot Program That Runs in Both JS and Python">
+  <meta property="og:description" content="Polyglot programs are no new concept. A polyglot is a computer program or script written in a valid form of multiple programming languages or file formats and have been crafted as challenges and curios in hacker culture since at least the early 1990s.
+Here’s a popular example of a polyglot written in C, PHP, and Bash:
+1 #define a /* 2 #&lt;?php 3 echo &#34;\010Hello, world!\n&#34;;// 2&gt; /dev/null &gt; /dev/null \ ; 4 // 2&gt; /dev/null; x=a; 5 $x=5; // 2&gt; /dev/null \ ; 6 if (($x)) 7 // 2&gt; /dev/null; then 8 return 0; 9 // 2&gt; /dev/null; fi 10 #define e ?&gt; 11 #define b */ 12 #include &lt;stdio.h&gt; 13 #define main() int main(void) 14 #define printf printf( 15 #define true ) 16 #define function 17 function main() 18 { 19 printf &#34;Hello, world!\n&#34;true/* 2&gt; /dev/null | grep -v true*/; 20 return 0; 21 } 22 #define c /* 23 main 24 #*/ But I had yet to come across a polyglot program that runs both in JavaScript and Python so I set out with the idea of creating such a program. The rules were simple:">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-12-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-29T00:00:00+00:00">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="Python">
+    <meta property="og:image" content="/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Creating a Polyglot Program That Runs in Both JS and Python">
+  <meta name="twitter:description" content="Polyglot programs are no new concept. A polyglot is a computer program or script written in a valid form of multiple programming languages or file formats and have been crafted as challenges and curios in hacker culture since at least the early 1990s.
+Here’s a popular example of a polyglot written in C, PHP, and Bash:
+1 #define a /* 2 #&lt;?php 3 echo &#34;\010Hello, world!\n&#34;;// 2&gt; /dev/null &gt; /dev/null \ ; 4 // 2&gt; /dev/null; x=a; 5 $x=5; // 2&gt; /dev/null \ ; 6 if (($x)) 7 // 2&gt; /dev/null; then 8 return 0; 9 // 2&gt; /dev/null; fi 10 #define e ?&gt; 11 #define b */ 12 #include &lt;stdio.h&gt; 13 #define main() int main(void) 14 #define printf printf( 15 #define true ) 16 #define function 17 function main() 18 { 19 printf &#34;Hello, world!\n&#34;true/* 2&gt; /dev/null | grep -v true*/; 20 return 0; 21 } 22 #define c /* 23 main 24 #*/ But I had yet to come across a polyglot program that runs both in JavaScript and Python so I set out with the idea of creating such a program. The rules were simple:">
+
+
+
+
+  <meta itemprop="name" content="Creating a Polyglot Program That Runs in Both JS and Python">
+  <meta itemprop="description" content="Polyglot programs are no new concept. A polyglot is a computer program or script written in a valid form of multiple programming languages or file formats and have been crafted as challenges and curios in hacker culture since at least the early 1990s.
+Here’s a popular example of a polyglot written in C, PHP, and Bash:
+1 #define a /* 2 #&lt;?php 3 echo &#34;\010Hello, world!\n&#34;;// 2&gt; /dev/null &gt; /dev/null \ ; 4 // 2&gt; /dev/null; x=a; 5 $x=5; // 2&gt; /dev/null \ ; 6 if (($x)) 7 // 2&gt; /dev/null; then 8 return 0; 9 // 2&gt; /dev/null; fi 10 #define e ?&gt; 11 #define b */ 12 #include &lt;stdio.h&gt; 13 #define main() int main(void) 14 #define printf printf( 15 #define true ) 16 #define function 17 function main() 18 { 19 printf &#34;Hello, world!\n&#34;true/* 2&gt; /dev/null | grep -v true*/; 20 return 0; 21 } 22 #define c /* 23 main 24 #*/ But I had yet to come across a polyglot program that runs both in JavaScript and Python so I set out with the idea of creating such a program. The rules were simple:">
+  <meta itemprop="datePublished" content="2025-12-29T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-29T00:00:00+00:00">
+  <meta itemprop="wordCount" content="584">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Javascript,Python">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="../" class="title">
+  <h2>( •–•) Mo Codes</h2>
+</a>
+<nav>
+<a href="../">Home</a>
+
+<a href="../blog/">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Creating a Polyglot Program That Runs in Both JS and Python</h1>
+<p>
+  <i>
+    <time datetime='2025-12-29'>
+      29 Dec, 2025
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>Polyglot programs are no new concept. A polyglot is a computer program or script written in a valid form of multiple programming languages or file formats and have been crafted as challenges and curios in hacker culture since at least the early 1990s.</p>
+<p>Here&rsquo;s a popular example of a polyglot written in C, PHP, and Bash:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span> <span style="color:#007020">#define a </span><span style="color:#60a0b0;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#60a0b0;font-style:italic"> #&lt;?php
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#60a0b0;font-style:italic"> echo &#34;\010Hello, world!\n&#34;;// 2&gt; /dev/null &gt; /dev/null \ ;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#60a0b0;font-style:italic"> // 2&gt; /dev/null; x=a;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#60a0b0;font-style:italic"> $x=5; // 2&gt; /dev/null \ ;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#60a0b0;font-style:italic"> if (($x))
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#60a0b0;font-style:italic"> // 2&gt; /dev/null; then
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#60a0b0;font-style:italic"> return 0;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#60a0b0;font-style:italic"> // 2&gt; /dev/null; fi
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#60a0b0;font-style:italic"> #define e ?&gt;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#60a0b0;font-style:italic"> #define b */</span><span style="color:#007020">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#007020"></span> <span style="color:#007020">#include</span> <span style="color:#007020">&lt;stdio.h&gt;</span><span style="color:#007020">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#007020"></span> <span style="color:#007020">#define main() int main(void)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#007020"></span> <span style="color:#007020">#define printf printf(
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span><span style="color:#007020"></span> <span style="color:#007020">#define true )
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#007020"></span> <span style="color:#007020">#define function
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#007020"></span> function <span style="color:#06287e">main</span>()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span> printf <span style="color:#4070a0">&#34;Hello, world!</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span><span style="color:#007020">true</span><span style="color:#60a0b0;font-style:italic">/* 2&gt; /dev/null | grep -v true*/</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span> <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span> }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span> <span style="color:#007020">#define c </span><span style="color:#60a0b0;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#60a0b0;font-style:italic"> main
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span><span style="color:#60a0b0;font-style:italic"> #*/</span><span style="color:#007020">
+</span></span></span></code></pre></div><p>But I had yet to come across a polyglot program that runs both in JavaScript and Python so I set out with the idea of creating such a program. The rules were simple:</p>
+<ol>
+<li>The code must be syntactically valid in both languages</li>
+<li>Each language&rsquo;s executable code must be isolated so the other language ignores it</li>
+</ol>
+<p>The type of polyglot I was going for is known as a zipper polyglot. We&rsquo;ll use a &lsquo;parasite polyglot&rsquo; approach where we embed data into comment structures if we don&rsquo;t want it to be run in one language but do want it to be run in another.</p>
+<p>At first it felt borderline impossible but after about an hour of experimenting, I finally came up with a program that satisfies the rules of the challenge by making use of multiline comments in both languages.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#40a070">1</span>; <span style="color:#60a0b0;font-style:italic">// 1; &#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#60a0b0;font-style:italic"></span>console.log(<span style="color:#4070a0">&#34;Hello from JavaScript&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#60a0b0;font-style:italic">/* &#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#60a0b0;font-style:italic">print(&#34;Hello from Python&#34;)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#60a0b0;font-style:italic">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#60a0b0;font-style:italic">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span><span style="color:#60a0b0;font-style:italic"># */</span>
+</span></span></code></pre></div><p>Despite completing my self assigned challenge, solely using comments to write the polyglot felt a lot like cheating so I did some research and came across a video by Evan Zhou on Youtube. His approach is slightly more intuitive. For the Python subroutine, his solution used a JS comment much like mine however the JavaScript statement utilises a clever trick. By using a JS Labeled Statement, &ldquo;lambda:&rdquo; at the start is treated as a label by the JS compiler and is ignored by the python compiler. The eval is then executed like normal and delivers the execution of the JS code in a string.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#40a070">1</span> <span style="color:#666">//</span> (<span style="color:#007020;font-weight:bold">lambda</span>: exec(<span style="color:#4070a0">&#34;print(&#39;Hello from Python&#39;)&#34;</span>, <span style="color:#007020">globals</span>()) <span style="color:#007020;font-weight:bold">or</span> <span style="color:#40a070">1</span>)()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#007020;font-weight:bold">lambda</span>: <span style="color:#007020">eval</span>(<span style="color:#4070a0">&#34;console.log(&#39;Hello from JavaScript&#39;)&#34;</span>)
+</span></span></code></pre></div><p>But it gets better. The comment section of Evan&rsquo;s video is fascinating and there are countless talented individuals with a deep understanding of the intricacies in both languages leading to many awesome solutions.</p>
+<p>Here is one that I found particularly interesting which capitalises on how bitwise and equality operators bind:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020">eval</span>(
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  [<span style="color:#4070a0">&#39;print(&#34;Hello from Python&#34;)&#39;</span>, <span style="color:#4070a0">&#39;console.log(&#34;Hello from JavaScript&#34;)&#39;</span>][
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#40a070">1</span> <span style="color:#666">|</span> (<span style="color:#40a070">0</span> <span style="color:#666">==</span> <span style="color:#40a070">2</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>  ]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#007020">eval</span>([<span style="color:#4070a0">&#34;print(1|0==2)&#34;</span>, <span style="color:#4070a0">&#34;console.log(1|0==2)&#34;</span>][<span style="color:#40a070">1</span> <span style="color:#666">|</span> (<span style="color:#40a070">0</span> <span style="color:#666">==</span> <span style="color:#40a070">2</span>)]);
+</span></span></code></pre></div><p>Although in hindsight, solving this problem and understanding other solutions seems simple in hindsight, coming up with polyglot programs is a lot harder than you&rsquo;d think and I would definitely give it a shot in any programming languages of your choice. Writing polyglot programs is definitely an underrated way to become a better software engineer and learn the intricacies of the languages we use on a daily basis.</p>
+<p>Thanks for reading :)</p>
+<h3 id="references">References:</h3>
+<p><a href="https://github.com/myl117/polyglot-experiments">polyglot-experiments</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Polyglot_(computing)">Polyglot (computing)</a></p>
+<p><a href="https://www.youtube.com/watch?v=dbf9e7okjm8">this code runs in both JS and Python.</a></p>
+
+</content>
+
+
+
+<p>
+  
+  <a href="../blog/javascript/">#Javascript</a>
+  
+  <a href="../blog/python/">#Python</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

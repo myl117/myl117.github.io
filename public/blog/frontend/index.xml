@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Frontend on ( •–•) Mo Codes</title>
-    <link>/blog/frontend/</link>
+    <link>//localhost:1313/blog/frontend/</link>
     <description>Recent content in Frontend on ( •–•) Mo Codes</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
     <lastBuildDate>Sun, 14 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/blog/frontend/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/blog/frontend/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Making Sense of React Hooks</title>
-      <link>/making-sense-of-react-hooks/</link>
+      <link>//localhost:1313/making-sense-of-react-hooks/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>/making-sense-of-react-hooks/</guid>
+      <guid>//localhost:1313/making-sense-of-react-hooks/</guid>
       <description>&lt;p&gt;Recently, the company I work for switched their frontend web framework from Vue.js to React.js. I think it’s fair to say that React has a harder learning curve 📈 than Vue.js. Vue is also arguably smarter when it comes to change detection and re-rendering as you don’t have to worry about passing in dependencies to computed/watched/side effects. With React ⚛️ on the other hand, it’s a lot easier to shoot yourself in the foot if you overlook the nuances of the framework. One of the distinct features in React.js are hooks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building a Fantasy Ledger With Java Spring Boot</title>
-      <link>/building-a-fantasy-ledger-with-java-spring-boot/</link>
+      <link>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>/building-a-fantasy-ledger-with-java-spring-boot/</guid>
+      <guid>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</guid>
       <description>&lt;p&gt;I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of databases, CRUD operations and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.&lt;/p&gt;&#xA;&lt;p&gt;Since I’m a huge fan of fantasy media 🧝‍♂️ and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!&lt;/p&gt;</description>
     </item>
   </channel>

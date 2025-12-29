@@ -5,8 +5,6 @@ tags = [
     "java",
     "springboot",
     "crud",
-    "backend",
-    "tutorial",
     "hosting",
     "docker",
     "database"

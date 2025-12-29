@@ -6,8 +6,6 @@ tags = [
     "springboot",
     "spring",
     "testing",
-    "backend",
-    "tutorial",
     "JUnit"
 ]
 +++
