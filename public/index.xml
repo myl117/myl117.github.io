@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
-    <lastBuildDate>Mon, 29 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Demystifying Prototypes and Classes in JavaScript (and TypeScript)</title>
+      <link>/demystifying-prototypes-and-classes-in-javascript-and-typescript/</link>
+      <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>/demystifying-prototypes-and-classes-in-javascript-and-typescript/</guid>
+      <description>&lt;p&gt;If you’ve worked within the JavaScript ecosystem, you’ve probably used an ES6 class data structure. But you may not know about its more primitive counterpart: prototypes. The core truth is that JavaScript is prototype-based language and one of the only mainstream object-oriented languages to use prototypal inheritance.&lt;/p&gt;&#xA;&lt;p&gt;Classes are just syntax sugar over prototypes and throwing TypeScript into the mix adds type safety but does not enforce runtime behaviour.&lt;/p&gt;&#xA;&lt;p&gt;But what are prototypes? A prototype is just another object that an object delegates to when a property or method is not found on itself and this allows for shared methods across multiple instances of an object. Every object gets a &lt;em&gt;[[Prototype]]&lt;/em&gt; slot automatically when it is created.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Creating a Polyglot Program That Runs in Both JS and Python</title>
       <link>/creating-a-polyglot-program-that-runs-in-both-js-and-python/</link>
