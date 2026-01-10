@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
-    <lastBuildDate>Tue, 30 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating Your First HTTP Server in C</title>
+      <link>/creating-your-first-http-server-in-c/</link>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/creating-your-first-http-server-in-c/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re new to learning a low level programming language like C and have, like myself, come from the world of high level programming, building something as simple as an HTTP server can be quite daunting. But despite the perceived complexity, it is an awesome way to get more acquainted with the C syntax and essential skills like memory management, pointers and understanding core TCP/IP concepts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-a-tcp-socket&#34;&gt;What is a TCP Socket?&lt;/h2&gt;&#xA;&lt;p&gt;TCP sockets are simply endpoints for communication between two machines over a network, using the Transmission Control Protocol (TCP). In practical terms, a socket is a combination of an IP address (we&amp;rsquo;ll be sticking to IPV4), a protocol (TCP) and a port number. A socket acts like a two-way pipe. For two applications to communicate, they must both create a socket on their machines and then connect to each other to establish a communication channel.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Demystifying Prototypes and Classes in JavaScript (and TypeScript)</title>
       <link>/demystifying-prototypes-and-classes-in-javascript-and-typescript/</link>
@@ -64,13 +71,6 @@
       <pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate>
       <guid>/building-a-tiny-cron-scheduler-with-go/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re anything like me, you&amp;rsquo;ve probably got a bunch of scheduled tasks running in the cloud whether it&amp;rsquo;s automation, IoT projects, data processing or just random experiments. My go-to approach has been to dockerize mini servers and deploy them on platforms like GCP or AWS. But getting something up and running on Cloud Run or Lambda isn&amp;rsquo;t as lightweight as it sounds. You still need to push images to a registry, wire up an API gateway and set up a scheduler like Cloud Scheduler on GCP.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Markdown Syntax Guide</title>
-      <link>/markdown-syntax-guide/</link>
-      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>/markdown-syntax-guide/</guid>
-      <description>&lt;p&gt;For a quick cheatsheet, check out &lt;a href=&#34;https://simplemde.com/markdown-guide&#34;&gt;https://simplemde.com/markdown-guide&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
