@@ -3,7 +3,7 @@ title = "Creating a Polyglot Program That Runs in Both JS and Python"
 date = "2025-12-29"
 tags = [
     "javascript",
-    "python",
+    "python"
 ]
 +++
 

@@ -4,9 +4,7 @@ date = "2025-08-29"
 tags = [
     "java",
     "springboot",
-    "crud",
-    "mvc",
-    "github",
+    "mvc"
 ]
 +++
 

@@ -4,10 +4,7 @@ date = "2025-09-05"
 tags = [
     "java",
     "springboot",
-    "crud",
-    "hosting",
-    "docker",
-    "database"
+    "docker"
 ]
 +++
 

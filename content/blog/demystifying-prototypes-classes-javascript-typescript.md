@@ -3,7 +3,7 @@ title = "Demystifying Prototypes and Classes in JavaScript (and TypeScript)"
 date = "2025-12-30"
 tags = [
     "javascript",
-    "typescript",
+    "typescript"
 ]
 +++
 

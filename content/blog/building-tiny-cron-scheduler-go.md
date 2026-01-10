@@ -4,10 +4,7 @@ date = "2025-08-19"
 tags = [
     "go",
     "fiber",
-    "docker",
-    "engineering",
-    "optimisation",
-    "hosted"
+    "docker"
 ]
 +++
 

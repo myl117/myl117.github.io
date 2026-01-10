@@ -5,7 +5,7 @@ tags = [
     "java",
     "springboot",
     "spring",
-    "beans",
+    "beans"
 ]
 +++
 

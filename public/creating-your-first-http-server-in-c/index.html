@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="../images/favicon.png" />
+<title>Creating Your First HTTP Server in C | ( •–•) Mo Codes</title>
+<meta name="title" content="Creating Your First HTTP Server in C" />
+<meta name="description" content="If you&rsquo;re new to learning a low level programming language like C and have, like myself, come from the world of high level programming, building something as simple as an HTTP server can be quite daunting. But despite the perceived complexity, it is an awesome way to get more acquainted with the C syntax and essential skills like memory management, pointers and understanding core TCP/IP concepts.
+What is a TCP Socket?
+TCP sockets are simply endpoints for communication between two machines over a network, using the Transmission Control Protocol (TCP). In practical terms, a socket is a combination of an IP address (we&rsquo;ll be sticking to IPV4), a protocol (TCP) and a port number. A socket acts like a two-way pipe. For two applications to communicate, they must both create a socket on their machines and then connect to each other to establish a communication channel." />
+<meta name="keywords" content="c," />
+
+
+<meta property="og:url" content="/creating-your-first-http-server-in-c/">
+  <meta property="og:site_name" content="( •–•) Mo Codes">
+  <meta property="og:title" content="Creating Your First HTTP Server in C">
+  <meta property="og:description" content="If you’re new to learning a low level programming language like C and have, like myself, come from the world of high level programming, building something as simple as an HTTP server can be quite daunting. But despite the perceived complexity, it is an awesome way to get more acquainted with the C syntax and essential skills like memory management, pointers and understanding core TCP/IP concepts.
+What is a TCP Socket? TCP sockets are simply endpoints for communication between two machines over a network, using the Transmission Control Protocol (TCP). In practical terms, a socket is a combination of an IP address (we’ll be sticking to IPV4), a protocol (TCP) and a port number. A socket acts like a two-way pipe. For two applications to communicate, they must both create a socket on their machines and then connect to each other to establish a communication channel.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-01-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-01-10T00:00:00+00:00">
+    <meta property="article:tag" content="C">
+    <meta property="og:image" content="/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Creating Your First HTTP Server in C">
+  <meta name="twitter:description" content="If you’re new to learning a low level programming language like C and have, like myself, come from the world of high level programming, building something as simple as an HTTP server can be quite daunting. But despite the perceived complexity, it is an awesome way to get more acquainted with the C syntax and essential skills like memory management, pointers and understanding core TCP/IP concepts.
+What is a TCP Socket? TCP sockets are simply endpoints for communication between two machines over a network, using the Transmission Control Protocol (TCP). In practical terms, a socket is a combination of an IP address (we’ll be sticking to IPV4), a protocol (TCP) and a port number. A socket acts like a two-way pipe. For two applications to communicate, they must both create a socket on their machines and then connect to each other to establish a communication channel.">
+
+
+
+
+  <meta itemprop="name" content="Creating Your First HTTP Server in C">
+  <meta itemprop="description" content="If you’re new to learning a low level programming language like C and have, like myself, come from the world of high level programming, building something as simple as an HTTP server can be quite daunting. But despite the perceived complexity, it is an awesome way to get more acquainted with the C syntax and essential skills like memory management, pointers and understanding core TCP/IP concepts.
+What is a TCP Socket? TCP sockets are simply endpoints for communication between two machines over a network, using the Transmission Control Protocol (TCP). In practical terms, a socket is a combination of an IP address (we’ll be sticking to IPV4), a protocol (TCP) and a port number. A socket acts like a two-way pipe. For two applications to communicate, they must both create a socket on their machines and then connect to each other to establish a communication channel.">
+  <meta itemprop="datePublished" content="2026-01-10T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-01-10T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1251">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="C">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+   
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="../" class="title">
+  <h2>( •–•) Mo Codes</h2>
+</a>
+<nav>
+<a href="../">Home</a>
+
+<a href="../blog/">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Creating Your First HTTP Server in C</h1>
+<p>
+  <i>
+    <time datetime='2026-01-10'>
+      10 Jan, 2026
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>If you&rsquo;re new to learning a low level programming language like C and have, like myself, come from the world of high level programming, building something as simple as an HTTP server can be quite daunting. But despite the perceived complexity, it is an awesome way to get more acquainted with the C syntax and essential skills like memory management, pointers and understanding core TCP/IP concepts.</p>
+<h2 id="what-is-a-tcp-socket">What is a TCP Socket?</h2>
+<p>TCP sockets are simply endpoints for communication between two machines over a network, using the Transmission Control Protocol (TCP). In practical terms, a socket is a combination of an IP address (we&rsquo;ll be sticking to IPV4), a protocol (TCP) and a port number. A socket acts like a two-way pipe. For two applications to communicate, they must both create a socket on their machines and then connect to each other to establish a communication channel.</p>
+<p>HTTP (Hypertext Transfer Protocol) is just a text based protocol that is built on top of TCP so building a simple &ldquo;Hello World&rdquo; server like we are going to in this mini tutorial is fairly straightforward once we have a barebones TCP server set up.</p>
+<h2 id="creating-a-tcp-server">Creating a TCP Server</h2>
+<p>Before writing any code, we want to make sure we have added the necessary header files to the top of our entrypoint C file. Socket APIs are different depending on which operating system you use and since my daily driver is Windows, I will be using the Winsock API. If you are using a Unix/Linux based system, the code should be pretty similar but I will link a guide on setting up TCP sockets for Linux in the references section. In addition to using a socket API library, we will also need to add the header files for some standard libraries. Here is the full header import list:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;stdio.h&gt;</span><span style="color:#007020">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;stdlib.h&gt;</span><span style="color:#007020">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;string.h&gt;</span><span style="color:#007020">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;unistd.h&gt;</span><span style="color:#007020">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;winsock2.h&gt;</span><span style="color:#007020">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#007020">#include</span> <span style="color:#007020">&lt;ws2tcpip.h&gt;</span><span style="color:#007020">
+</span></span></span></code></pre></div><p>To begin using the Winsocks library and work with sockets, we need to initialise the networking subsystem.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>WSADATA wsa;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#60a0b0;font-style:italic">// This code turns on the networking subsystem so we can use sockets
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">if</span> (<span style="color:#06287e">WSAStartup</span>(<span style="color:#06287e">MAKEWORD</span>(<span style="color:#40a070">2</span>,<span style="color:#40a070">2</span>), <span style="color:#666">&amp;</span>wsa) <span style="color:#666">!=</span> <span style="color:#40a070">0</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>  <span style="color:#06287e">printf</span>(<span style="color:#4070a0">&#34;Failed to initialize Winsock. Error Code: %d</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span>, <span style="color:#06287e">WSAGetLastError</span>());
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>  <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>}
+</span></span></code></pre></div><p>Next, we want to create a TCP socket for our server. We also want to bind our newly created socket to an IP address and PORT and thereafter mark the socket as ready to accept connections. I&rsquo;ve commented on the key parts of the code to help better explain what the various flags and variables are for.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#60a0b0;font-style:italic">// create a socket
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#60a0b0;font-style:italic">// AF_INET means IPV4 and SOCK_STREAM means TCP
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#60a0b0;font-style:italic"></span>server_sock <span style="color:#666">=</span> <span style="color:#06287e">socket</span>(AF_INET, SOCK_STREAM, <span style="color:#40a070">0</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#007020;font-weight:bold">if</span> (server_sock <span style="color:#666">==</span> INVALID_SOCKET) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>  <span style="color:#06287e">printf</span>(<span style="color:#4070a0">&#34;Could not create socket. Error Code: %d</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span>, <span style="color:#06287e">WSAGetLastError</span>());
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>  <span style="color:#06287e">WSACleanup</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>  <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#60a0b0;font-style:italic">// setup a data structure that describes an IPV4 and port
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#60a0b0;font-style:italic"></span>server_addr.sin_family <span style="color:#666">=</span> AF_INET; <span style="color:#60a0b0;font-style:italic">// IPV4
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#60a0b0;font-style:italic"></span>server_addr.sin_addr.s_addr <span style="color:#666">=</span> INADDR_ANY; <span style="color:#60a0b0;font-style:italic">// listen on all interfaces, localshost/wifi/ethernet
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#60a0b0;font-style:italic"></span>server_addr.sin_port <span style="color:#666">=</span> <span style="color:#06287e">htons</span>(<span style="color:#40a070">3000</span>); <span style="color:#60a0b0;font-style:italic">// port number
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#06287e">memset</span>(server_addr.sin_zero, <span style="color:#40a070">0</span>, <span style="color:#007020;font-weight:bold">sizeof</span>(server_addr.sin_zero));
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#60a0b0;font-style:italic">// we&#39;ve previously created our socket but have not binded it to anything so it has no identity on the network
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#60a0b0;font-style:italic">// so we need to bind it
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">if</span> (<span style="color:#06287e">bind</span>(server_sock, (<span style="color:#007020;font-weight:bold">struct</span> sockaddr <span style="color:#666">*</span>)<span style="color:#666">&amp;</span>server_addr, <span style="color:#007020;font-weight:bold">sizeof</span>(server_addr)) <span style="color:#666">==</span> SOCKET_ERROR) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>  <span style="color:#06287e">printf</span>(<span style="color:#4070a0">&#34;Bind failed. Error Code: %d</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span>, <span style="color:#06287e">WSAGetLastError</span>());
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>  <span style="color:#06287e">closesocket</span>(server_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>  <span style="color:#06287e">WSACleanup</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>  <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#60a0b0;font-style:italic">// tell the OS to listen for incoming connections to our socket and accept TCP requests
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span><span style="color:#60a0b0;font-style:italic">// here we set the backlog of how many pending connections we can have on our socket to be 5
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">if</span> (<span style="color:#06287e">listen</span>(server_sock, <span style="color:#40a070">5</span>) <span style="color:#666">==</span> SOCKET_ERROR) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>  <span style="color:#06287e">printf</span>(<span style="color:#4070a0">&#34;Listen failed. Error Code: %d</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span>, <span style="color:#06287e">WSAGetLastError</span>());
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>  <span style="color:#06287e">closesocket</span>(server_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>  <span style="color:#06287e">WSACleanup</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>  <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>}
+</span></span></code></pre></div><p>Now our socket is listening for connections but they aren&rsquo;t actually handled as of yet. To do that, we need to accept connections and also be able to handle new connections if they are made. To do that, we will use a combination of two while loops. The outer loop will accept new connections from clients and create a new client socket and the inner loop will continuously talk to the client until the client disconnects. Every time the client sends data, the server will echo the same data back.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#60a0b0;font-style:italic">// outer loop - keep the server alive and accept connections
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">while</span>(<span style="color:#40a070">1</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  client_sock <span style="color:#666">=</span> <span style="color:#06287e">accept</span>(server_sock, <span style="color:#007020">NULL</span>, <span style="color:#007020">NULL</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  <span style="color:#007020;font-weight:bold">if</span> (client_sock <span style="color:#666">==</span> INVALID_SOCKET) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#06287e">printf</span>(<span style="color:#4070a0">&#34;Accept failed. Error Code: %d</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span>, <span style="color:#06287e">WSAGetLastError</span>());
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    <span style="color:#06287e">closesocket</span>(server_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#06287e">WSACleanup</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>  <span style="color:#06287e">printf</span>(<span style="color:#4070a0">&#34;Client connected!</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>  <span style="color:#06287e">send</span>(client_sock, <span style="color:#4070a0">&#34;Welcome!</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span>, <span style="color:#40a070">9</span>, <span style="color:#40a070">0</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>  <span style="color:#902000">char</span> buffer[<span style="color:#40a070">1024</span>];
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>  <span style="color:#902000">int</span> bytes_read;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>  <span style="color:#60a0b0;font-style:italic">// inner loop, keep talking to the client
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#60a0b0;font-style:italic"></span>  <span style="color:#007020;font-weight:bold">while</span> ((bytes_read <span style="color:#666">=</span> <span style="color:#06287e">recv</span>(client_sock, buffer, <span style="color:#007020;font-weight:bold">sizeof</span>(buffer) <span style="color:#666">-</span> <span style="color:#40a070">1</span>, <span style="color:#40a070">0</span>)) <span style="color:#666">&gt;</span> <span style="color:#40a070">0</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    buffer[bytes_read] <span style="color:#666">=</span> <span style="color:#4070a0">&#39;\0&#39;</span>; <span style="color:#60a0b0;font-style:italic">// make it printable
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#60a0b0;font-style:italic"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>    <span style="color:#06287e">printf</span>(<span style="color:#4070a0">&#34;Received: %s&#34;</span>, buffer);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>    <span style="color:#06287e">send</span>(client_sock, buffer, bytes_read, <span style="color:#40a070">0</span>); <span style="color:#60a0b0;font-style:italic">// echo back
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#60a0b0;font-style:italic"></span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>  <span style="color:#06287e">printf</span>(<span style="color:#4070a0">&#34;Client disconnected</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>  <span style="color:#06287e">closesocket</span>(client_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>}
+</span></span></code></pre></div><p>And lastly, let&rsquo;s make sure that before we exit the application, we clean up Winsocks and close the server socket allowing our OS to free up memory.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#60a0b0;font-style:italic">// Close server socket
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#06287e">closesocket</span>(server_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#60a0b0;font-style:italic">// Cleanup Winsock
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#06287e">WSACleanup</span>();
+</span></span></code></pre></div><p>To test the server, once built with your compiler of choice (I chose GCC) and running, we can use a tool like telnet or my personal favourite, ncat to make connections. You should see the server echo back any data you write in the terminal confirming the server is working.</p>
+<h2 id="creating-an-http-server">Creating an HTTP Server</h2>
+<p>An HTTP server, as mentioned earlier, is a protocol that is built on top of TCP so now that we have a server that can listen, accept, receive and send connections, the barebones for our HTTP server has already been completed.</p>
+<p>The aim of our HTTP server is to send a &ldquo;Hello World&rdquo; message back to the client to be displayed in the browser. To do this, we want to only change the while loop that listens for connections and once a connection is made, construct a minimal HTTP response and send it to the client. An HTTP response consists of headers and a body where each header ends with &ldquo;\r\n&rdquo; and an empty line separates it from the body.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#60a0b0;font-style:italic">// keep the server alive and accept HTTP connections
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">while</span>(<span style="color:#40a070">1</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  client_sock <span style="color:#666">=</span> <span style="color:#06287e">accept</span>(server_sock, <span style="color:#007020">NULL</span>, <span style="color:#007020">NULL</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  <span style="color:#007020;font-weight:bold">if</span> (client_sock <span style="color:#666">==</span> INVALID_SOCKET) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#06287e">printf</span>(<span style="color:#4070a0">&#34;Accept failed. Error Code: %d</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span>, <span style="color:#06287e">WSAGetLastError</span>());
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    <span style="color:#06287e">closesocket</span>(server_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#06287e">WSACleanup</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>  <span style="color:#06287e">printf</span>(<span style="color:#4070a0">&#34;Client made a request!</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>  <span style="color:#902000">char</span> buffer[<span style="color:#40a070">4096</span>];
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>  <span style="color:#902000">int</span> bytes_read <span style="color:#666">=</span> <span style="color:#06287e">recv</span>(client_sock, buffer, <span style="color:#007020;font-weight:bold">sizeof</span>(buffer) <span style="color:#666">-</span> <span style="color:#40a070">1</span>, <span style="color:#40a070">0</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>  <span style="color:#007020;font-weight:bold">if</span> (bytes_read <span style="color:#666">&lt;=</span> <span style="color:#40a070">0</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    <span style="color:#06287e">closesocket</span>(client_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    <span style="color:#007020;font-weight:bold">continue</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>  buffer[bytes_read] <span style="color:#666">=</span> <span style="color:#4070a0">&#39;\0&#39;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>  <span style="color:#007020;font-weight:bold">const</span> <span style="color:#902000">char</span> <span style="color:#666">*</span>http_response <span style="color:#666">=</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>    <span style="color:#4070a0">&#34;HTTP/1.1 200 OK</span><span style="color:#4070a0;font-weight:bold">\r\n</span><span style="color:#4070a0">&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>    <span style="color:#4070a0">&#34;Content-Type: text/plain</span><span style="color:#4070a0;font-weight:bold">\r\n</span><span style="color:#4070a0">&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>    <span style="color:#4070a0">&#34;Content-Length: 13</span><span style="color:#4070a0;font-weight:bold">\r\n</span><span style="color:#4070a0">&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>    <span style="color:#4070a0">&#34;</span><span style="color:#4070a0;font-weight:bold">\r\n</span><span style="color:#4070a0">&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>    <span style="color:#4070a0">&#34;Hello, world!&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>  <span style="color:#06287e">send</span>(client_sock, http_response, <span style="color:#06287e">strlen</span>(http_response), <span style="color:#40a070">0</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>  <span style="color:#06287e">closesocket</span>(client_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>}
+</span></span></code></pre></div><p>Loading localhost:3000 in your browser should now display “Hello, world!”. And that’s it, we’ve accomplished our mission of creating a minimal HTTP server in C from scratch. It&rsquo;s a tad bit more technical than simply running a few commands and getting a Spring Boot or Express JS server up and running but the possibilities to expand this are endless. From here, you can implement more routes, support multiple file formats such as HTML and JSON or add multithreading to support multiple non-blocking client connections. I hope this mini tutorial will provide you with a launchpad for experimentation with networking in C.</p>
+<p>Thanks for reading!</p>
+<h2 id="references">References</h2>
+<p><a href="https://www.cloudflare.com/en-gb/learning/ddos/glossary/tcp-ip/">What is TCP/IP?</a></p>
+<p><a href="https://nmap.org/ncat/">Ncat - Netcat for the 21st Century</a></p>
+<p><a href="https://www.linuxhowtos.org/C_C++/socket.htm">C/C++ -&gt; Sockets Tutorial</a></p>
+<p><a href="https://www.geeksforgeeks.org/c/tcp-server-client-implementation-in-c/">TCP Server-Client implementation in C</a></p>
+
+</content>
+
+
+
+<p>
+  
+  <a href="../blog/c/">#C</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

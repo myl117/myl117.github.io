@@ -4,7 +4,7 @@ date = "2025-12-14"
 tags = [
     "react",
     "hooks",
-    "vue",
+    "vue"
 ]
 +++
 
