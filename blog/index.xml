@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
-    <lastBuildDate>Sat, 10 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using gRPC for Microservice Communication</title>
+      <link>/using-grpc-for-microservice-communication/</link>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/using-grpc-for-microservice-communication/</guid>
+      <description>&lt;p&gt;In traditional microservice architectures, communication between services is done via REST or sometimes for event driven communication, protocols like MQTT are employed. In a RESTful architecture, resources are identified by URIs (Uniform Resource Identifiers) and operations on those resources are performed using standard HTTP methods. Data Transfer Objects (DTOs) are represented as JSON or XML which are both lightweight and human readable formats.&lt;/p&gt;&#xA;&lt;p&gt;gRPC on the other hand is a relatively newer framework which facilitates efficient communication using RPCs (Remote Procedure Calls) enabling services to call functions on other machines as if they were local. It is built on the use of a mechanism called Protobufs (Protocol Buffers) which supports strongly typed service contracts for DTOs and binary data encoding as opposed to JSON. Protobuf contracts are defined in .proto files which are used to generate code that can be used by a microservice akin to a library or SDK.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Creating Your First HTTP Server in C</title>
       <link>/creating-your-first-http-server-in-c/</link>
