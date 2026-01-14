@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
-    <lastBuildDate>Mon, 12 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gRPC on the Frontend With gRPC-web</title>
+      <link>/grpc-on-the-frontend-with-grpc-web/</link>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/grpc-on-the-frontend-with-grpc-web/</guid>
+      <description>&lt;p&gt;We&amp;rsquo;ve previously explored gRPC and how it is a revolutionary protocol for microservice communication compared to the relatively archaic REST protocol. RPCs enable services to call procedures on other machines as if they were locally defined thanks to strongly typed Protobuf contracts. Protobufs also allow gRPC to encode data in binary form which is 5x more space and time efficient compared to JSON/XML. It may sound like I&amp;rsquo;m repeating myself (I promise I&amp;rsquo;m not sponsored by big-RPC) but gRPC really is the superior mode of communication for client-server communication.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Using gRPC for Microservice Communication</title>
       <link>/using-grpc-for-microservice-communication/</link>

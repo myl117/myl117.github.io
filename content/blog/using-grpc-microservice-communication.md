@@ -2,9 +2,10 @@
 title = "Using gRPC for Microservice Communication"
 date = "2026-01-12"
 tags = [
-    "java",
-    "springboot",
-    "typescript"
+	"grpc",
+	"java",
+	"springboot",
+	"typescript"
 ]
 +++
 
