@@ -7,14 +7,14 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
-    <lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/blog/threejs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>gRPC on the Frontend With gRPC-web</title>
-      <link>//localhost:1313/grpc-on-the-frontend-with-grpc-web/</link>
-      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/grpc-on-the-frontend-with-grpc-web/</guid>
-      <description>&lt;p&gt;We&amp;rsquo;ve previously explored gRPC and how it is a revolutionary protocol for microservice communication compared to the relatively archaic REST protocol. RPCs enable services to call procedures on other machines as if they were locally defined thanks to strongly typed Protobuf contracts. Protobufs also allow gRPC to encode data in binary form which is 5x more space and time efficient compared to JSON/XML. It may sound like I&amp;rsquo;m repeating myself (I promise I&amp;rsquo;m not sponsored by big-RPC) but gRPC really is the superior mode of communication for client-server communication.&lt;/p&gt;</description>
+      <title>Third-Person Character Controller in Three.js from Scratch</title>
+      <link>//localhost:1313/third-person-character-controller-in-three.js-from-scratch/</link>
+      <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/third-person-character-controller-in-three.js-from-scratch/</guid>
+      <description>&lt;p&gt;Third person controller games are arguably more immersive than their first person counterparts. They allow you to see your character, make strategic decisions and interact with the environment in unique ways. It’s no wonder some of the greatest games of all time, think Assassin&amp;rsquo;s Creed, The Last of Us and God of War are played solely in third person. Due to its popularity, most game engines have 3rd person controllers built in, so adding one to your game is simply a matter of clicking a couple buttons. On one hand, this allows developers to focus on other aspects of their games; however, it also detracts from teaching game devs how to build controllers from scratch and understand the mathematics behind controllers.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
