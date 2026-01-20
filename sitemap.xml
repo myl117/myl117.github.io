@@ -2,97 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/</loc>
+    <loc>/</loc>
     <lastmod>2026-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/</loc>
+    <loc>/blog/</loc>
     <lastmod>2026-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/javascript/</loc>
+    <loc>/blog/javascript/</loc>
     <lastmod>2026-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/third-person-character-controller-in-three.js-from-scratch/</loc>
+    <loc>/third-person-character-controller-in-three.js-from-scratch/</loc>
     <lastmod>2026-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/threejs/</loc>
+    <loc>/blog/threejs/</loc>
     <lastmod>2026-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/grpc/</loc>
+    <loc>/blog/grpc/</loc>
     <lastmod>2026-01-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/grpc-on-the-frontend-with-grpc-web/</loc>
+    <loc>/grpc-on-the-frontend-with-grpc-web/</loc>
     <lastmod>2026-01-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/typescript/</loc>
+    <loc>/blog/typescript/</loc>
     <lastmod>2026-01-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/java/</loc>
+    <loc>/blog/java/</loc>
     <lastmod>2026-01-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/springboot/</loc>
+    <loc>/blog/springboot/</loc>
     <lastmod>2026-01-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/using-grpc-for-microservice-communication/</loc>
+    <loc>/using-grpc-for-microservice-communication/</loc>
     <lastmod>2026-01-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/c/</loc>
+    <loc>/blog/c/</loc>
     <lastmod>2026-01-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/creating-your-first-http-server-in-c/</loc>
+    <loc>/creating-your-first-http-server-in-c/</loc>
     <lastmod>2026-01-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/demystifying-prototypes-and-classes-in-javascript-and-typescript/</loc>
+    <loc>/demystifying-prototypes-and-classes-in-javascript-and-typescript/</loc>
     <lastmod>2025-12-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/creating-a-polyglot-program-that-runs-in-both-js-and-python/</loc>
+    <loc>/creating-a-polyglot-program-that-runs-in-both-js-and-python/</loc>
     <lastmod>2025-12-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/python/</loc>
+    <loc>/blog/python/</loc>
     <lastmod>2025-12-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/hooks/</loc>
+    <loc>/blog/hooks/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/making-sense-of-react-hooks/</loc>
+    <loc>/making-sense-of-react-hooks/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/react/</loc>
+    <loc>/blog/react/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/vue/</loc>
+    <loc>/blog/vue/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/testing/</loc>
+    <loc>/blog/testing/</loc>
     <lastmod>2025-10-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/testing-in-spring-boot-with-junit-and-mockito/</loc>
+    <loc>/testing-in-spring-boot-with-junit-and-mockito/</loc>
     <lastmod>2025-10-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/beans/</loc>
+    <loc>/blog/beans/</loc>
     <lastmod>2025-09-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/spring-beans-for-absolute-beginners/</loc>
+    <loc>/spring-beans-for-absolute-beginners/</loc>
     <lastmod>2025-09-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/deploying-our-fantasy-ledger-to-the-cloud/</loc>
+    <loc>/deploying-our-fantasy-ledger-to-the-cloud/</loc>
     <lastmod>2025-09-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/docker/</loc>
+    <loc>/blog/docker/</loc>
     <lastmod>2025-09-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</loc>
+    <loc>/building-a-fantasy-ledger-with-java-spring-boot/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/mvc/</loc>
+    <loc>/blog/mvc/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/building-a-tiny-cron-scheduler-with-go/</loc>
+    <loc>/building-a-tiny-cron-scheduler-with-go/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/fiber/</loc>
+    <loc>/blog/fiber/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/go/</loc>
+    <loc>/blog/go/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url>
 </urlset>
