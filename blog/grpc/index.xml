@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Grpc on ( •–•) Mo Codes</title>
-    <link>/blog/grpc/</link>
+    <link>//localhost:1313/blog/grpc/</link>
     <description>Recent content in Grpc on ( •–•) Mo Codes</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
     <lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/blog/grpc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/blog/grpc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gRPC on the Frontend With gRPC-web</title>
-      <link>/grpc-on-the-frontend-with-grpc-web/</link>
+      <link>//localhost:1313/grpc-on-the-frontend-with-grpc-web/</link>
       <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>/grpc-on-the-frontend-with-grpc-web/</guid>
+      <guid>//localhost:1313/grpc-on-the-frontend-with-grpc-web/</guid>
       <description>&lt;p&gt;We&amp;rsquo;ve previously explored gRPC and how it is a revolutionary protocol for microservice communication compared to the relatively archaic REST protocol. RPCs enable services to call procedures on other machines as if they were locally defined thanks to strongly typed Protobuf contracts. Protobufs also allow gRPC to encode data in binary form which is 5x more space and time efficient compared to JSON/XML. It may sound like I&amp;rsquo;m repeating myself (I promise I&amp;rsquo;m not sponsored by big-RPC) but gRPC really is the superior mode of communication for client-server communication.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using gRPC for Microservice Communication</title>
-      <link>/using-grpc-for-microservice-communication/</link>
+      <link>//localhost:1313/using-grpc-for-microservice-communication/</link>
       <pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>/using-grpc-for-microservice-communication/</guid>
+      <guid>//localhost:1313/using-grpc-for-microservice-communication/</guid>
       <description>&lt;p&gt;In traditional microservice architectures, communication between services is done via REST or sometimes for event driven communication, protocols like MQTT are employed. In a RESTful architecture, resources are identified by URIs (Uniform Resource Identifiers) and operations on those resources are performed using standard HTTP methods. Data Transfer Objects (DTOs) are represented as JSON or XML which are both lightweight and human readable formats.&lt;/p&gt;&#xA;&lt;p&gt;gRPC on the other hand is a relatively newer framework which facilitates efficient communication using RPCs (Remote Procedure Calls) enabling services to call functions on other machines as if they were local. It is built on the use of a mechanism called Protobufs (Protocol Buffers) which supports strongly typed service contracts for DTOs and binary data encoding as opposed to JSON. Protobuf contracts are defined in .proto files which are used to generate code that can be used by a microservice akin to a library or SDK.&lt;/p&gt;</description>
     </item>
   </channel>

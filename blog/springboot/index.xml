@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Springboot on ( •–•) Mo Codes</title>
-    <link>/blog/springboot/</link>
+    <link>//localhost:1313/blog/springboot/</link>
     <description>Recent content in Springboot on ( •–•) Mo Codes</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
     <lastBuildDate>Mon, 12 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/blog/springboot/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/blog/springboot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using gRPC for Microservice Communication</title>
-      <link>/using-grpc-for-microservice-communication/</link>
+      <link>//localhost:1313/using-grpc-for-microservice-communication/</link>
       <pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>/using-grpc-for-microservice-communication/</guid>
+      <guid>//localhost:1313/using-grpc-for-microservice-communication/</guid>
       <description>&lt;p&gt;In traditional microservice architectures, communication between services is done via REST or sometimes for event driven communication, protocols like MQTT are employed. In a RESTful architecture, resources are identified by URIs (Uniform Resource Identifiers) and operations on those resources are performed using standard HTTP methods. Data Transfer Objects (DTOs) are represented as JSON or XML which are both lightweight and human readable formats.&lt;/p&gt;&#xA;&lt;p&gt;gRPC on the other hand is a relatively newer framework which facilitates efficient communication using RPCs (Remote Procedure Calls) enabling services to call functions on other machines as if they were local. It is built on the use of a mechanism called Protobufs (Protocol Buffers) which supports strongly typed service contracts for DTOs and binary data encoding as opposed to JSON. Protobuf contracts are defined in .proto files which are used to generate code that can be used by a microservice akin to a library or SDK.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Testing in Spring Boot With Junit and Mockito</title>
-      <link>/testing-in-spring-boot-with-junit-and-mockito/</link>
+      <link>//localhost:1313/testing-in-spring-boot-with-junit-and-mockito/</link>
       <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>/testing-in-spring-boot-with-junit-and-mockito/</guid>
+      <guid>//localhost:1313/testing-in-spring-boot-with-junit-and-mockito/</guid>
       <description>&lt;p&gt;In October 2018 and March 2019, Boeing&amp;rsquo;s 737 MAX ✈️ was involved in two fatal crashes resulting in the loss of 346 lives as well as billions in fines, lawsuits and a lasting damage to Boeing&amp;rsquo;s reputation. The &lt;a href=&#34;https://www.youtube.com/watch?v=H2tuKiiznsY&#34;&gt;cause of these crashes&lt;/a&gt;: faulty sensor data caused the MCAS (Maneuvering Characteristics Augmentation System) to activate inappropriately. The software wasn&amp;rsquo;t tested adequately against single-sensor failure.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s important to note that unit testing alone would not have saved the 737 MAX but had the MCAS system been more rigorously tested, its assumptions may have been questioned with more scrutiny and raised flags earlier.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring Beans for Absolute Beginners</title>
-      <link>/spring-beans-for-absolute-beginners/</link>
+      <link>//localhost:1313/spring-beans-for-absolute-beginners/</link>
       <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>/spring-beans-for-absolute-beginners/</guid>
+      <guid>//localhost:1313/spring-beans-for-absolute-beginners/</guid>
       <description>&lt;p&gt;If you’ve ever dabbled in the Java Spring framework specifically Spring Boot 🍃, chances are you’ve come across the term beans. Sure, you could pretend they don’t exist and temporarily dodge the headache of figuring them out but let’s be honest, that only delays the inevitable. Don’t worry, though: this article is your guide out of that loop. By the end, you’ll have a clear understanding of what Spring beans 🫘 are and how their lifecycle works. No more guesswork, no more suffering.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Deploying Our Fantasy Ledger to the Cloud</title>
-      <link>/deploying-our-fantasy-ledger-to-the-cloud/</link>
+      <link>//localhost:1313/deploying-our-fantasy-ledger-to-the-cloud/</link>
       <pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>/deploying-our-fantasy-ledger-to-the-cloud/</guid>
+      <guid>//localhost:1313/deploying-our-fantasy-ledger-to-the-cloud/</guid>
       <description>&lt;p&gt;Previously, we built a fantasy ledger application in Java Spring Boot, whipped up a frontend and hooked it up to an in-memory SQL database all while sticking to the principles of MVC.&lt;/p&gt;&#xA;&lt;p&gt;That&amp;rsquo;s great and all, but the only way to actually interact with our app is by running it locally, which can be a bit of a hassle 🤦 to set up every time. We want our creation to be accessible from every corner of the realm 🌎, not just a single device. Today, we&amp;rsquo;re going to fix that by dockerising our application and launching it on a cloud platform called &lt;a href=&#34;http://fly.io&#34;&gt;Fly.io&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building a Fantasy Ledger With Java Spring Boot</title>
-      <link>/building-a-fantasy-ledger-with-java-spring-boot/</link>
+      <link>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>/building-a-fantasy-ledger-with-java-spring-boot/</guid>
+      <guid>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</guid>
       <description>&lt;p&gt;I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of databases, CRUD operations and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.&lt;/p&gt;&#xA;&lt;p&gt;Since I’m a huge fan of fantasy media 🧝‍♂️ and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!&lt;/p&gt;</description>
     </item>
   </channel>
