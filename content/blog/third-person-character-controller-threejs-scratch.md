@@ -11,6 +11,9 @@ Third person controller games are arguably more immersive than their first perso
 
 Admittedly, I am someone who typically uses prebuilt controller systems so I thought it would be a fun challenge to build my own 3rd person controller with animations and object collisions in Three.js: the defacto library (powered by WebGL) for creating 3D computer graphics with JavaScript. Let’s get started shall we? [Here is a link to the code if you’d like to follow along.](https://github.com/myl117/js-canvas-experiments/tree/master/third-person-controller)
 
+![The final project scene including player model and collision box](/images/third-person-character-controller-threejs-scratch/screenshot.jpg)
+_The final project scene including player model and collision box_
+
 ## Getting Started
 
 Firstly, let’s create an index.html file. Since the project requires importing ES modules, a live server will be needed to run it. Our index.html file will simply be our application shell to import our entrypoint index.js script as well as initialise an import map so we can control how the browser resolves modules.
