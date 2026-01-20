@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Threejs on ( •–•) Mo Codes</title>
-    <link>//localhost:1313/blog/threejs/</link>
+    <link>/blog/threejs/</link>
     <description>Recent content in Threejs on ( •–•) Mo Codes</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
     <lastBuildDate>Tue, 20 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/blog/threejs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/blog/threejs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Third-Person Character Controller in Three.js from Scratch</title>
-      <link>//localhost:1313/third-person-character-controller-in-three.js-from-scratch/</link>
+      <link>/third-person-character-controller-in-three.js-from-scratch/</link>
       <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/third-person-character-controller-in-three.js-from-scratch/</guid>
+      <guid>/third-person-character-controller-in-three.js-from-scratch/</guid>
       <description>&lt;p&gt;Third person controller games are arguably more immersive than their first person counterparts. They allow you to see your character, make strategic decisions and interact with the environment in unique ways. It’s no wonder some of the greatest games of all time, think Assassin&amp;rsquo;s Creed, The Last of Us and God of War are played solely in third person. Due to its popularity, most game engines have 3rd person controllers built in, so adding one to your game is simply a matter of clicking a couple buttons. On one hand, this allows developers to focus on other aspects of their games; however, it also detracts from teaching game devs how to build controllers from scratch and understand the mathematics behind controllers.&lt;/p&gt;</description>
     </item>
   </channel>

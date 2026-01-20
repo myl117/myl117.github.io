@@ -2,95 +2,95 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on ( •–•) Mo Codes</title>
-    <link>//localhost:1313/blog/</link>
+    <link>/blog/</link>
     <description>Recent content in Blog on ( •–•) Mo Codes</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
     <lastBuildDate>Tue, 20 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Third-Person Character Controller in Three.js from Scratch</title>
-      <link>//localhost:1313/third-person-character-controller-in-three.js-from-scratch/</link>
+      <link>/third-person-character-controller-in-three.js-from-scratch/</link>
       <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/third-person-character-controller-in-three.js-from-scratch/</guid>
+      <guid>/third-person-character-controller-in-three.js-from-scratch/</guid>
       <description>&lt;p&gt;Third person controller games are arguably more immersive than their first person counterparts. They allow you to see your character, make strategic decisions and interact with the environment in unique ways. It’s no wonder some of the greatest games of all time, think Assassin&amp;rsquo;s Creed, The Last of Us and God of War are played solely in third person. Due to its popularity, most game engines have 3rd person controllers built in, so adding one to your game is simply a matter of clicking a couple buttons. On one hand, this allows developers to focus on other aspects of their games; however, it also detracts from teaching game devs how to build controllers from scratch and understand the mathematics behind controllers.&lt;/p&gt;</description>
     </item>
     <item>
       <title>gRPC on the Frontend With gRPC-web</title>
-      <link>//localhost:1313/grpc-on-the-frontend-with-grpc-web/</link>
+      <link>/grpc-on-the-frontend-with-grpc-web/</link>
       <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/grpc-on-the-frontend-with-grpc-web/</guid>
+      <guid>/grpc-on-the-frontend-with-grpc-web/</guid>
       <description>&lt;p&gt;We&amp;rsquo;ve previously explored gRPC and how it is a revolutionary protocol for microservice communication compared to the relatively archaic REST protocol. RPCs enable services to call procedures on other machines as if they were locally defined thanks to strongly typed Protobuf contracts. Protobufs also allow gRPC to encode data in binary form which is 5x more space and time efficient compared to JSON/XML. It may sound like I&amp;rsquo;m repeating myself (I promise I&amp;rsquo;m not sponsored by big-RPC) but gRPC really is the superior mode of communication for client-server communication.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using gRPC for Microservice Communication</title>
-      <link>//localhost:1313/using-grpc-for-microservice-communication/</link>
+      <link>/using-grpc-for-microservice-communication/</link>
       <pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/using-grpc-for-microservice-communication/</guid>
+      <guid>/using-grpc-for-microservice-communication/</guid>
       <description>&lt;p&gt;In traditional microservice architectures, communication between services is done via REST or sometimes for event driven communication, protocols like MQTT are employed. In a RESTful architecture, resources are identified by URIs (Uniform Resource Identifiers) and operations on those resources are performed using standard HTTP methods. Data Transfer Objects (DTOs) are represented as JSON or XML which are both lightweight and human readable formats.&lt;/p&gt;&#xA;&lt;p&gt;gRPC on the other hand is a relatively newer framework which facilitates efficient communication using RPCs (Remote Procedure Calls) enabling services to call functions on other machines as if they were local. It is built on the use of a mechanism called Protobufs (Protocol Buffers) which supports strongly typed service contracts for DTOs and binary data encoding as opposed to JSON. Protobuf contracts are defined in .proto files which are used to generate code that can be used by a microservice akin to a library or SDK.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Creating Your First HTTP Server in C</title>
-      <link>//localhost:1313/creating-your-first-http-server-in-c/</link>
+      <link>/creating-your-first-http-server-in-c/</link>
       <pubDate>Sat, 10 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/creating-your-first-http-server-in-c/</guid>
+      <guid>/creating-your-first-http-server-in-c/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re new to learning a low level programming language like C and have, like myself, come from the world of high level programming, building something as simple as an HTTP server can be quite daunting. But despite the perceived complexity, it is an awesome way to get more acquainted with the C syntax and essential skills like memory management, pointers and understanding core TCP/IP concepts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-a-tcp-socket&#34;&gt;What is a TCP Socket?&lt;/h2&gt;&#xA;&lt;p&gt;TCP sockets are simply endpoints for communication between two machines over a network, using the Transmission Control Protocol (TCP). In practical terms, a socket is a combination of an IP address (we&amp;rsquo;ll be sticking to IPV4), a protocol (TCP) and a port number. A socket acts like a two-way pipe. For two applications to communicate, they must both create a socket on their machines and then connect to each other to establish a communication channel.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Demystifying Prototypes and Classes in JavaScript (and TypeScript)</title>
-      <link>//localhost:1313/demystifying-prototypes-and-classes-in-javascript-and-typescript/</link>
+      <link>/demystifying-prototypes-and-classes-in-javascript-and-typescript/</link>
       <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/demystifying-prototypes-and-classes-in-javascript-and-typescript/</guid>
+      <guid>/demystifying-prototypes-and-classes-in-javascript-and-typescript/</guid>
       <description>&lt;p&gt;If you’ve worked within the JavaScript ecosystem, you’ve probably used an ES6 class data structure. But you may not know about its more primitive counterpart: prototypes. The core truth is that JavaScript is prototype-based language and one of the only mainstream object-oriented languages to use prototypal inheritance.&lt;/p&gt;&#xA;&lt;p&gt;Classes are just syntax sugar over prototypes and throwing TypeScript into the mix adds type safety but does not enforce runtime behaviour.&lt;/p&gt;&#xA;&lt;p&gt;But what are prototypes? A prototype is just another object that an object delegates to when a property or method is not found on itself and this allows for shared methods across multiple instances of an object. Every object gets a &lt;em&gt;[[Prototype]]&lt;/em&gt; slot automatically when it is created.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Creating a Polyglot Program That Runs in Both JS and Python</title>
-      <link>//localhost:1313/creating-a-polyglot-program-that-runs-in-both-js-and-python/</link>
+      <link>/creating-a-polyglot-program-that-runs-in-both-js-and-python/</link>
       <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/creating-a-polyglot-program-that-runs-in-both-js-and-python/</guid>
+      <guid>/creating-a-polyglot-program-that-runs-in-both-js-and-python/</guid>
       <description>&lt;p&gt;Polyglot programs are no new concept. A polyglot is a computer program or script written in a valid form of multiple programming languages or file formats and have been crafted as challenges and curios in hacker culture since at least the early 1990s.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s a popular example of a polyglot written in C, PHP, and Bash:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1&lt;/span&gt;&lt;span&gt; &lt;span style=&#34;color:#007020&#34;&gt;#define a &lt;/span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt;/*&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt; #&amp;lt;?php&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt; echo &amp;#34;\010Hello, world!\n&amp;#34;;// 2&amp;gt; /dev/null &amp;gt; /dev/null \ ;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt; // 2&amp;gt; /dev/null; x=a;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt; $x=5; // 2&amp;gt; /dev/null \ ;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt; if (($x))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt; // 2&amp;gt; /dev/null; then&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt; return 0;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt; // 2&amp;gt; /dev/null; fi&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt; #define e ?&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt; #define b */&lt;/span&gt;&lt;span style=&#34;color:#007020&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#007020&#34;&gt;&lt;/span&gt; &lt;span style=&#34;color:#007020&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#007020&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#007020&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#007020&#34;&gt;&lt;/span&gt; &lt;span style=&#34;color:#007020&#34;&gt;#define main() int main(void)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#007020&#34;&gt;&lt;/span&gt; &lt;span style=&#34;color:#007020&#34;&gt;#define printf printf(&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#007020&#34;&gt;&lt;/span&gt; &lt;span style=&#34;color:#007020&#34;&gt;#define true )&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#007020&#34;&gt;&lt;/span&gt; &lt;span style=&#34;color:#007020&#34;&gt;#define function&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#007020&#34;&gt;&lt;/span&gt; function &lt;span style=&#34;color:#06287e&#34;&gt;main&lt;/span&gt;()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18&lt;/span&gt;&lt;span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19&lt;/span&gt;&lt;span&gt; printf &lt;span style=&#34;color:#4070a0&#34;&gt;&amp;#34;Hello, world!&lt;/span&gt;&lt;span style=&#34;color:#4070a0;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#4070a0&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#007020&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt;/* 2&amp;gt; /dev/null | grep -v true*/&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20&lt;/span&gt;&lt;span&gt; &lt;span style=&#34;color:#007020;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#40a070&#34;&gt;0&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21&lt;/span&gt;&lt;span&gt; }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22&lt;/span&gt;&lt;span&gt; &lt;span style=&#34;color:#007020&#34;&gt;#define c &lt;/span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt;/*&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt; main&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#60a0b0;font-style:italic&#34;&gt; #*/&lt;/span&gt;&lt;span style=&#34;color:#007020&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But I had yet to come across a polyglot program that runs both in JavaScript and Python so I set out with the idea of creating such a program. The rules were simple:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Making Sense of React Hooks</title>
-      <link>//localhost:1313/making-sense-of-react-hooks/</link>
+      <link>/making-sense-of-react-hooks/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/making-sense-of-react-hooks/</guid>
+      <guid>/making-sense-of-react-hooks/</guid>
       <description>&lt;p&gt;Recently, the company I work for switched their frontend web framework from Vue.js to React.js. I think it’s fair to say that React has a harder learning curve 📈 than Vue.js. Vue is also arguably smarter when it comes to change detection and re-rendering as you don’t have to worry about passing in dependencies to computed/watched/side effects. With React ⚛️ on the other hand, it’s a lot easier to shoot yourself in the foot if you overlook the nuances of the framework. One of the distinct features in React.js are hooks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Testing in Spring Boot With Junit and Mockito</title>
-      <link>//localhost:1313/testing-in-spring-boot-with-junit-and-mockito/</link>
+      <link>/testing-in-spring-boot-with-junit-and-mockito/</link>
       <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/testing-in-spring-boot-with-junit-and-mockito/</guid>
+      <guid>/testing-in-spring-boot-with-junit-and-mockito/</guid>
       <description>&lt;p&gt;In October 2018 and March 2019, Boeing&amp;rsquo;s 737 MAX ✈️ was involved in two fatal crashes resulting in the loss of 346 lives as well as billions in fines, lawsuits and a lasting damage to Boeing&amp;rsquo;s reputation. The &lt;a href=&#34;https://www.youtube.com/watch?v=H2tuKiiznsY&#34;&gt;cause of these crashes&lt;/a&gt;: faulty sensor data caused the MCAS (Maneuvering Characteristics Augmentation System) to activate inappropriately. The software wasn&amp;rsquo;t tested adequately against single-sensor failure.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s important to note that unit testing alone would not have saved the 737 MAX but had the MCAS system been more rigorously tested, its assumptions may have been questioned with more scrutiny and raised flags earlier.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring Beans for Absolute Beginners</title>
-      <link>//localhost:1313/spring-beans-for-absolute-beginners/</link>
+      <link>/spring-beans-for-absolute-beginners/</link>
       <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/spring-beans-for-absolute-beginners/</guid>
+      <guid>/spring-beans-for-absolute-beginners/</guid>
       <description>&lt;p&gt;If you’ve ever dabbled in the Java Spring framework specifically Spring Boot 🍃, chances are you’ve come across the term beans. Sure, you could pretend they don’t exist and temporarily dodge the headache of figuring them out but let’s be honest, that only delays the inevitable. Don’t worry, though: this article is your guide out of that loop. By the end, you’ll have a clear understanding of what Spring beans 🫘 are and how their lifecycle works. No more guesswork, no more suffering.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Deploying Our Fantasy Ledger to the Cloud</title>
-      <link>//localhost:1313/deploying-our-fantasy-ledger-to-the-cloud/</link>
+      <link>/deploying-our-fantasy-ledger-to-the-cloud/</link>
       <pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/deploying-our-fantasy-ledger-to-the-cloud/</guid>
+      <guid>/deploying-our-fantasy-ledger-to-the-cloud/</guid>
       <description>&lt;p&gt;Previously, we built a fantasy ledger application in Java Spring Boot, whipped up a frontend and hooked it up to an in-memory SQL database all while sticking to the principles of MVC.&lt;/p&gt;&#xA;&lt;p&gt;That&amp;rsquo;s great and all, but the only way to actually interact with our app is by running it locally, which can be a bit of a hassle 🤦 to set up every time. We want our creation to be accessible from every corner of the realm 🌎, not just a single device. Today, we&amp;rsquo;re going to fix that by dockerising our application and launching it on a cloud platform called &lt;a href=&#34;http://fly.io&#34;&gt;Fly.io&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building a Fantasy Ledger With Java Spring Boot</title>
-      <link>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</link>
+      <link>/building-a-fantasy-ledger-with-java-spring-boot/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/building-a-fantasy-ledger-with-java-spring-boot/</guid>
+      <guid>/building-a-fantasy-ledger-with-java-spring-boot/</guid>
       <description>&lt;p&gt;I’ve been wanting to put together a beginner-friendly Java Spring Boot tutorial that takes you through everything starting from installing Java, to understanding the core principles of databases, CRUD operations and MVC while keeping it fun. But I didn’t want to fall into the trap of making yet another todo app.&lt;/p&gt;&#xA;&lt;p&gt;Since I’m a huge fan of fantasy media 🧝‍♂️ and books like A Song of Ice and Fire and The Lord of the Rings, I decided to build a fantasy-themed ledger web app. In it, users can create mini log entries that persist through a backend database. The fantasy theme also gives us room to get creative with CSS and styling!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building a Tiny Cron Scheduler With Go</title>
-      <link>//localhost:1313/building-a-tiny-cron-scheduler-with-go/</link>
+      <link>/building-a-tiny-cron-scheduler-with-go/</link>
       <pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/building-a-tiny-cron-scheduler-with-go/</guid>
+      <guid>/building-a-tiny-cron-scheduler-with-go/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re anything like me, you&amp;rsquo;ve probably got a bunch of scheduled tasks running in the cloud whether it&amp;rsquo;s automation, IoT projects, data processing or just random experiments. My go-to approach has been to dockerize mini servers and deploy them on platforms like GCP or AWS. But getting something up and running on Cloud Run or Lambda isn&amp;rsquo;t as lightweight as it sounds. You still need to push images to a registry, wire up an API gateway and set up a scheduler like Cloud Scheduler on GCP.&lt;/p&gt;</description>
     </item>
   </channel>
